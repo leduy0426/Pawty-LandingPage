@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-cream font-body antialiased">
+    <div id="root" class="min-h-screen flex items-center justify-center p-6"></div>
+    <script type="module">
+      import React from 'react';
+      import ReactDOM from 'react-dom/client';
+      import './src/styles/index.css';
+      import { PetMatchPhoneMockup } from './src/components/mockups';
+      ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(PetMatchPhoneMockup));
+    </script>
+  </body>
+</html>

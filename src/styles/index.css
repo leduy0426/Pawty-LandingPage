@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-coral: #FF6F61;
+  --color-mint: #A3E4D7;
+  --color-cream: #FDFBF7;
+  --color-charcoal: #2D3436;
+  --color-soft-gray: #B2BEC3;
+  --color-warning: #FDCB6E;
+  --color-danger: #E17055;
+}
+
+/* Custom Utilities & Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FDFBF7;
+}
+::-webkit-scrollbar-thumb {
+  background: #FF6F61;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #E05547;
+}
+
+.glass-nav {
+  background: rgba(253, 251, 247, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.gradient-coral {
+  background: linear-gradient(135deg, #FF6F61 0%, #FF8A7E 100%);
+}
+
+.gradient-mint {
+  background: linear-gradient(135deg, #A3E4D7 0%, #76C7B7 100%);
+}
+
+.hero-glow {
+  background: radial-gradient(circle, rgba(255, 111, 97, 0.15) 0%, rgba(163, 228, 215, 0.12) 40%, transparent 70%);
+}
+
