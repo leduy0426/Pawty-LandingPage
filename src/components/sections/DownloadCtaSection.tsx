@@ -21,7 +21,7 @@ export const DownloadCtaSection: React.FC = () => {
                 Tham Gia Ngay Hôm Nay
               </div>
 
-              <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-tight">
+              <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl leading-tight">
                 Để mỗi buổi chiều của Boss luôn tràn ngập tiếng cười!
               </h2>
 

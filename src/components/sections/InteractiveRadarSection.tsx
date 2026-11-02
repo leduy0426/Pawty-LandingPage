@@ -42,7 +42,7 @@ export const InteractiveRadarSection: React.FC = () => {
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-coral-50 border border-coral/30 text-coral text-xs font-bold uppercase tracking-wider">
             🤝 Trải Nghiệm Pawty Dating (FB Dating Style)
           </div>
-          <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-charcoal tracking-tight">
+          <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-charcoal leading-tight">
             Khám phá &amp; gửi lời mời dắt dạo chung cư
           </h2>
           <p className="text-base sm:text-lg text-charcoal-light">

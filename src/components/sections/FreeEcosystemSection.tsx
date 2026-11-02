@@ -17,7 +17,7 @@ export const FreeEcosystemSection: React.FC<FreeEcosystemProps> = ({ onDownloadC
             <Gift className="w-4 h-4 text-mint-dark" />
             100% Miễn Phí Vì Cộng Đồng
           </div>
-          <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-charcoal tracking-tight">
+          <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-charcoal leading-tight">
             Không gói cước, không phí ẩn. Trọn đời cho mọi Boss &amp; Sen
           </h2>
           <p className="text-base sm:text-lg text-charcoal-light">

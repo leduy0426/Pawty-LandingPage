@@ -19,7 +19,7 @@ export const TrustStatsSection: React.FC = () => {
               transition={{ delay: idx * 0.1, duration: 0.5 }}
               className="p-4 rounded-2xl bg-white/60 backdrop-blur-sm border border-gray-100 shadow-sm"
             >
-              <div className="font-display font-extrabold text-3xl sm:text-4xl text-coral tracking-tight">
+              <div className="font-display font-bold text-3xl sm:text-4xl text-coral">
                 {stat.value}
               </div>
               <div className="text-sm font-bold text-charcoal mt-1">

@@ -20,7 +20,7 @@ export const FaqSection: React.FC = () => {
             <HelpCircle className="w-4 h-4" />
             Giải Đáp Thắc Mắc
           </div>
-          <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-charcoal tracking-tight">
+          <h2 className="font-display font-bold text-3xl sm:text-4xl text-charcoal leading-tight">
             Những câu hỏi thường gặp về Pawty
           </h2>
           <p className="text-base text-charcoal-light">

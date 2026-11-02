@@ -12,15 +12,17 @@
   --color-danger: #E17055;
 }
 
-/* Cute & Rounded Typography Enforced Everywhere */
+/* Cute & Rounded Typography Enforced Everywhere with 100% Vietnamese Native Glyph Support */
 body, button, input, select, textarea {
   font-family: 'Quicksand', 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
-  letter-spacing: 0.01em;
+  letter-spacing: 0;
 }
 
 h1, h2, h3, h4, h5, h6, .font-display {
-  font-family: 'Fredoka', 'Quicksand', cursive, sans-serif;
-  letter-spacing: 0.02em;
+  font-family: 'Baloo 2', 'Quicksand', 'Nunito', cursive, sans-serif;
+  letter-spacing: 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Custom Utilities & Scrollbar */

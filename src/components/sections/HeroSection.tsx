@@ -79,7 +79,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreRadar, onDown
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-[46px] xl:text-[54px] text-white leading-[1.12] tracking-tight text-left drop-shadow-sm"
+              className="font-display font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[46px] xl:text-[54px] text-white leading-[1.18] text-left drop-shadow-sm"
             >
               Trải nghiệm kết nối Boss &amp; Sen thông minh, an tâm tuyệt đối
             </motion.h1>

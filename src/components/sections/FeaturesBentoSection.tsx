@@ -75,7 +75,7 @@ export const FeaturesBentoSection: React.FC<FeaturesBentoProps> = ({ onLearnMore
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-mint-50 border border-mint/40 text-mint-dark text-xs font-bold uppercase tracking-wider">
             🐾 4 Trụ Cột Đột Phá Công Nghệ
           </div>
-          <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-charcoal tracking-tight">
+          <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-charcoal leading-tight">
             Mọi điều bạn và Boss cần, gói gọn trong một siêu ứng dụng
           </h2>
           <p className="text-base sm:text-lg text-charcoal-light font-body">
@@ -112,7 +112,7 @@ export const FeaturesBentoSection: React.FC<FeaturesBentoProps> = ({ onLearnMore
                   </div>
 
                   <div>
-                    <h3 className="font-display font-bold text-2xl text-charcoal tracking-tight group-hover:text-coral transition-colors">
+                    <h3 className="font-display font-bold text-2xl text-charcoal group-hover:text-coral transition-colors">
                       {feature.title}
                     </h3>
                     <p className="mt-3 text-sm sm:text-base text-charcoal-light leading-relaxed">

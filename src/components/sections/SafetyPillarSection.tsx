@@ -46,7 +46,7 @@ export const SafetyPillarSection: React.FC = () => {
               Cam Kết Cộng Đồng An Toàn
             </div>
 
-            <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-charcoal tracking-tight">
+            <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-charcoal leading-tight">
               An toàn của Boss là ưu tiên số 1, không đánh đổi
             </h2>
 
