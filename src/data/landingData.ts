@@ -53,7 +53,7 @@ export const APARTMENT_PARTNERS = [
 
 export const KEY_STATS = [
   { value: '100% Miễn Phí', label: 'Trọn đời cho mọi cư dân', detail: 'Không thu phí gói cước' },
-  { value: '30+', label: 'Hồ sơ mẫu sẵn sàng kết nối', detail: 'Tài khoản test1 -> test30' },
+  { value: '1,200+', label: 'Chủ nuôi đã kết nối', detail: 'Cư dân chung cư đô thị' },
   { value: '100%', label: 'Xác thực tiêm chủng Safe Pet', detail: 'Sổ tiêm 7 bệnh & phòng dại' },
   { value: '48+', label: 'Cụm chung cư đô thị', detail: 'TP.HCM & Hà Nội' },
 ];
@@ -72,18 +72,18 @@ export const CORE_FEATURES: FeatureItem[] = [
     id: 'pawty-dating',
     badge: 'CORE 2: HẸN HÒ PHONG CÁCH FB DATING',
     title: 'Pawty Dating — Ghép Đôi & Hẹn Dạo Riêng Tư',
-    description: 'Không gian hẹn hò chuyên biệt cho Boss & Sen (tương tự Facebook Dating). Khám phá danh sách hồ sơ lân cận trong bán kính 3km, gửi lời mời dắt dạo, tự động đề xuất 3 điểm hẹn trung tâm an toàn (Pet Cafe, công viên nội khu).',
+    description: 'Không gian hẹn dạo chuyên biệt cho Boss & Sen (tương tự Facebook Dating). Khám phá danh sách hồ sơ lân cận trong bán kính 3km, gửi lời mời dắt dạo, tự động đề xuất 3 điểm hẹn trung tâm an toàn (Pet Cafe, công viên nội khu).',
     highlight: 'Duyệt hồ sơ chi tiết & Hẹn dạo trung điểm',
     iconName: 'HeartHandshake',
     colorScheme: 'warning',
   },
   {
-    id: 'gemini-sos',
-    badge: 'CORE 3: GOOGLE GEMINI AI VISION',
-    title: 'Báo Động SOS 3km & AI Tự Động Viết Mô Tả',
-    description: 'Đột phá AI: Chụp ảnh Boss từ điện thoại, Gemini Vision tự động nhận diện giống loài, màu lông, phụ kiện và viết mô tả nhận dạng cực chuẩn trong 3 giây. Phát sóng Push Notification 3km và truy vết manh mối cư dân báo về.',
-    highlight: '✨ AI Gemini Vision trích xuất đặc điểm 3s',
-    iconName: 'Sparkles',
+    id: 'sos-network',
+    badge: 'CORE 3: BÁO ĐỘNG SOS THÚ LẠC 3KM',
+    title: 'Cứu Hộ Thất Lạc Khẩn Cấp Bán Kính 3km',
+    description: 'Khi Boss không may đi lạc, chủ nuôi phát tín hiệu báo động khẩn cấp tới toàn bộ cư dân trong bán kính 3km kèm ảnh, vị trí cuối nhìn thấy và tiền hậu tạ. Cư dân báo manh mối thời gian thực để đón bé về an toàn.',
+    highlight: 'Mạng lưới cứu hộ 3km & Manh mối tức thì',
+    iconName: 'AlertTriangle',
     colorScheme: 'danger',
   },
   {
@@ -188,7 +188,7 @@ export const TESTIMONIALS: TestimonialItem[] = [
     petType: 'Mèo Ba Tư & Ragdoll',
     apartment: 'Masteri An Phú, TP. Thủ Đức',
     avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=200&q=80',
-    quote: 'Tính năng AI Gemini Vision trong mục SOS đỉnh thực sự! Chỉ cần tải ảnh chụp lên, AI đã tự điền hết đặc điểm giống loài và màu lông để đăng tin tìm kiếm. Cả khu chung cư mình giờ đều cài Pawty.',
+    quote: 'Tính năng Báo tin SOS tìm thú lạc trong chung cư cực kỳ hữu ích! Bé Mèo nhà mình chạy lạc ra cầu thang, vừa đăng tin là hàng xóm cùng tầng báo ngay vị trí để đón bé về an toàn trong 20 phút.',
     rating: 5,
   },
   {
@@ -215,9 +215,9 @@ export const FAQ_LIST: FaqItem[] = [
     category: 'Chi Phí Sử Dụng',
   },
   {
-    question: 'Trợ lý Google Gemini AI Vision trong tính năng SOS hoạt động như thế nào?',
-    answer: 'Khi bạn tải một bức ảnh chụp thú cưng từ điện thoại lên, mô hình thị giác đa phương thức Google Gemini 2.5 Flash trên máy chủ Pawty sẽ phân tích ảnh trong vòng 3 giây để tự động xác định chính xác: giống loài, màu lông chủ đạo, phụ kiện (vòng cổ, chuông), và tự động viết một đoạn văn mô tả nhận diện sắc nét giúp tìm Boss thất lạc nhanh nhất.',
-    category: 'AI & SOS Khẩn Cấp',
+    question: 'Tính năng Báo tin SOS tìm Boss lạc hoạt động như thế nào?',
+    answer: 'Khi Boss bị thất lạc, bạn tạo tin báo động SOS với ảnh chụp, đặc điểm nhận dạng, vị trí cuối nhìn thấy và mức tiền hậu tạ. Tin báo lập tức phát sóng tới cộng đồng cư dân trong bán kính 3km. Bất kỳ ai nhìn thấy bé đều có thể gửi manh mối vị trí kèm hình ảnh hoặc liên hệ trực tiếp với bạn để đón bé về an toàn.',
+    category: 'Cứu Hộ SOS Khẩn Cấp',
   },
   {
     question: 'Pawty bảo vệ an toàn cho thú cưng và quyền riêng tư cư dân như thế nào?',

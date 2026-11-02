@@ -68,7 +68,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo, onNavigateSection })
             {/* Wordmark and Subtitle */}
             <div className="flex flex-col text-left">
               <span
-                className={`font-display font-extrabold text-2xl tracking-tight flex items-center gap-1 leading-none ${
+                className={`font-display font-bold text-2xl flex items-center gap-1 leading-none ${
                   isScrolled ? 'text-charcoal group-hover:text-coral' : 'text-white drop-shadow-sm'
                 }`}
               >

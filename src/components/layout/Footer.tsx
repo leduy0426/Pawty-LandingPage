@@ -17,8 +17,12 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal, onNavigateSection }
           {/* Col 1: Brand Info (2 spans) */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-coral flex items-center justify-center text-white font-display text-2xl shadow-md">
-                🐾
+              <div className="w-10 h-10 rounded-2xl bg-white flex items-center justify-center p-1 shadow-md">
+                <img
+                  src="/assets/pawty-icon.png"
+                  alt="Pawty Icon"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <span className="font-display font-bold text-2xl text-white tracking-tight flex items-center gap-1">
                 Pawty

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Sparkles, ArrowRight, HeartHandshake } from 'lucide-react';
+import { ShieldCheck, Sparkles, ArrowRight, HeartHandshake, AlertTriangle } from 'lucide-react';
 import { HeroTiltedCardsMosaic } from '../hero/HeroTiltedCardsMosaic';
 import { HeroTriplePhones } from '../hero/HeroTriplePhones';
 
@@ -71,7 +71,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreRadar, onDown
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-white text-xs sm:text-sm font-bold shadow-sm"
             >
               <Sparkles className="w-3.5 h-3.5 text-mint animate-pulse" />
-              <span>🐾 Siêu ứng dụng thú cưng đô thị tích hợp AI Google Gemini</span>
+              <span>🐾 Siêu ứng dụng kết nối cộng đồng &amp; tìm bạn dắt dạo thú cưng chung cư</span>
             </motion.div>
 
             {/* Main Headline */}
@@ -91,7 +91,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreRadar, onDown
               transition={{ duration: 0.7, delay: 0.45 }}
               className="text-sm sm:text-base md:text-lg text-white/90 font-body leading-relaxed max-w-xl text-left font-normal"
             >
-              Pawty là siêu ứng dụng kết nối cộng đồng thú cưng đô thị, kết hợp hoàn hảo giữa <strong className="text-white font-bold">Mạng Xã Hội khoảnh khắc</strong> và không gian <strong className="text-mint font-bold">Pawty Dating</strong> (chuẩn phong cách Facebook &amp; Facebook Dating). Tích hợp <strong className="text-white font-bold">✨ Trợ lý AI Google Gemini</strong> tìm Boss lạc và hồ sơ <strong className="text-white font-bold">Pet Family Passport</strong> minh bạch sổ tiêm Safe Pet.
+              Pawty là siêu ứng dụng kết nối cộng đồng thú cưng đô thị, kết hợp hoàn hảo giữa <strong className="text-white font-bold">Mạng Xã Hội khoảnh khắc</strong> và không gian <strong className="text-mint font-bold">Pawty Dating</strong> (chuẩn phong cách Facebook &amp; Facebook Dating). Tính năng <strong className="text-white font-bold">Báo động SOS 3km</strong> tìm Boss lạc và hồ sơ <strong className="text-white font-bold">Safe Pet</strong> minh bạch sổ tiêm phòng.
             </motion.p>
 
             {/* Store Badges & Call to Actions */}
@@ -131,12 +131,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreRadar, onDown
                 <span>100% Sổ Tiêm Safe Pet</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <Sparkles className="w-4 h-4 text-purple-300" />
-                <span>AI Gemini Vision 3s</span>
+                <AlertTriangle className="w-4 h-4 text-rose-300" />
+                <span>Báo Động SOS 3km</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <HeartHandshake className="w-4 h-4 text-amber-300" />
-                <span>Hẹn hò chuẩn FB Dating</span>
+                <span>Hẹn dạo chuẩn FB Dating</span>
               </div>
             </motion.div>
 

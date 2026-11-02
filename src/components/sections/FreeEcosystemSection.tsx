@@ -79,7 +79,7 @@ export const FreeEcosystemSection: React.FC<FreeEcosystemProps> = ({ onDownloadC
             </button>
           </motion.div>
 
-          {/* Card 2: Emergency SOS & AI Support */}
+          {/* Card 2: Emergency SOS Community Alert */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -99,18 +99,18 @@ export const FreeEcosystemSection: React.FC<FreeEcosystemProps> = ({ onDownloadC
 
               <div>
                 <h3 className="font-display font-bold text-2xl text-charcoal">
-                  Báo Động Tìm Boss Lạc &amp; Trợ Lý AI
+                  Báo Động Tìm Boss Lạc &amp; Mạng Lưới Cứu Hộ 3km
                 </h3>
                 <p className="text-sm text-charcoal-light mt-2 leading-relaxed">
-                  Mạng lưới cư dân đô thị phản ứng nhanh bán kính 3km với trợ lý AI phân tích nhận diện hình ảnh khi Boss đi lạc.
+                  Mạng lưới cư dân đô thị tương trợ khẩn cấp trong bán kính 3km giúp chủ nuôi nhanh chóng tìm lại Boss khi không may thất lạc.
                 </p>
               </div>
 
               <ul className="space-y-3.5 border-t border-gray-100 pt-6">
                 {[
                   'Báo động tìm Boss lạc khẩn cấp phủ sóng bán kính 3km',
-                  '✨ Trợ lý Google Gemini AI Vision tự động nhận diện & viết mô tả',
-                  'Cập nhật manh mối vị trí từ cư dân theo thời gian thực',
+                  'Đăng tin tìm kiếm kèm ảnh chụp, vị trí nhìn thấy và tiền hậu tạ',
+                  'Cư dân cập nhật manh mối vị trí nhìn thấy theo thời gian thực',
                   'Kết nối trực tiếp chủ nuôi với người vừa nhìn thấy bé',
                   '100% miễn phí — chung tay vì sự an toàn của thú cưng',
                 ].map((item, idx) => (

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Heart, X, MapPin, User, Sparkles, AlertTriangle, Eye, CheckCircle2, MessageSquare } from 'lucide-react';
+import { ShieldCheck, Heart, X, MapPin, User, AlertTriangle, CheckCircle2, MessageCircle, Compass, Bell } from 'lucide-react';
 
 export const HeroTriplePhones: React.FC = () => {
   return (
@@ -70,7 +70,7 @@ export const HeroTriplePhones: React.FC = () => {
                 <Heart className="w-3 h-3 fill-rose-400" /> 48 yêu thích
               </span>
               <span className="flex items-center gap-1">
-                <MessageSquare className="w-3 h-3" /> 12 bình luận
+                <MessageCircle className="w-3 h-3" /> 12 bình luận
               </span>
             </div>
           </div>
@@ -78,7 +78,7 @@ export const HeroTriplePhones: React.FC = () => {
       </motion.div>
 
       {/* ========================================================
-          RIGHT PHONE: BÁO ĐỘNG SOS + AI GEMINI VISION (+10° TILT)
+          RIGHT PHONE: BẢNG TIN SOS THÚ LẠC (+10° TILT)
           ======================================================== */}
       <motion.div
         initial={{ opacity: 0, x: 60, rotate: 18 }}
@@ -97,61 +97,93 @@ export const HeroTriplePhones: React.FC = () => {
             <span>5G 100%</span>
           </div>
 
-          {/* Screen Content: SOS AI Vision & Trajectory Map */}
-          <div className="p-3.5 space-y-2.5 flex-1 overflow-hidden text-left">
+          {/* Screen Content: SOS Board matching real Pawty app */}
+          <div className="p-3 space-y-2 flex-1 overflow-hidden text-left">
             {/* Header */}
-            <div className="flex items-center justify-between border-b border-white/10 pb-2">
+            <div className="flex items-center justify-between border-b border-white/10 pb-1.5">
               <div className="flex items-center gap-1.5">
                 <AlertTriangle className="w-4 h-4 text-rose-500 animate-pulse" />
-                <span className="text-xs font-bold font-display text-white">Bảng Tin SOS (3km)</span>
+                <span className="text-xs font-bold font-display text-white">Bảng Tin SOS Thú Lạc</span>
               </div>
-              <span className="text-[9px] px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-400 font-bold">Khẩn cấp</span>
+              <Bell className="w-3.5 h-3.5 text-white/60" />
             </div>
 
-            {/* AI Vision Badge Box */}
-            <div className="p-2 rounded-xl bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-coral/20 border border-purple-400/30 text-[9px] flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-purple-300 shrink-0" />
-              <span className="font-bold text-purple-200">✨ Google Gemini AI Vision đã mô tả nhận diện</span>
+            {/* Category Filter Pills */}
+            <div className="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5 text-[9px]">
+              <span className="px-2 py-0.5 rounded-full bg-coral text-white font-bold whitespace-nowrap">
+                Tất cả (2)
+              </span>
+              <span className="px-2 py-0.5 rounded-full bg-white/10 text-white/70 whitespace-nowrap">
+                Quanh đây (&lt;1km)
+              </span>
+              <span className="px-2 py-0.5 rounded-full bg-white/10 text-white/70 whitespace-nowrap">
+                Loài Chó
+              </span>
+              <span className="px-2 py-0.5 rounded-full bg-white/10 text-white/70 whitespace-nowrap">
+                Loài Mèo
+              </span>
             </div>
 
             {/* Pet SOS Card */}
-            <div className="rounded-2xl bg-white/5 border border-white/10 p-2.5 space-y-2">
-              <div className="flex items-center gap-2.5">
+            <div className="rounded-2xl bg-white/5 border border-white/10 p-2.5 space-y-1.5 text-[9px]">
+              <div className="flex items-center gap-2">
                 <img
                   src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=150&auto=format&fit=crop&q=80"
-                  alt="Mèo Sâu"
-                  className="w-12 h-12 rounded-xl object-cover border border-rose-500/40"
+                  alt="Lu - Mèo Ba Tư"
+                  className="w-11 h-11 rounded-xl object-cover border border-rose-500/40"
                 />
-                <div className="flex-1">
+                <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between">
-                    <h4 className="text-xs font-bold text-white">Sâu (Mèo Ba Tư)</h4>
-                    <span className="text-[9px] text-rose-400 font-bold">Hậu tạ: 1.000.000đ</span>
+                    <h4 className="text-[11px] font-bold text-white truncate">Lu (Mèo · Ba Tư)</h4>
+                    <span className="text-[9px] text-coral font-bold shrink-0">Cách 0.1km</span>
                   </div>
-                  <p className="text-[9px] text-white/60">Vị trí cuối: Tòa S1.02 Vinhomes</p>
+                  <p className="text-[8px] text-white/50 truncate">Đăng bởi: Lê Duy · Bài đăng của bạn</p>
+                  <p className="text-[9px] text-rose-400 font-bold mt-0.5">Hậu tạ: 1.000.000đ</p>
                 </div>
               </div>
 
-              {/* AI Auto Description Quote */}
-              <div className="p-2 rounded-xl bg-black/40 border border-white/5 text-[9px] text-white/80 leading-snug">
-                <span className="text-purple-300 font-bold">Mô tả AI: </span>
-                Lông xám bạc pha trắng ngực, mắt vàng hổ phách, không đeo vòng cổ. Thân thiện nhưng dễ hoảng loạn.
+              {/* Location Box */}
+              <div className="px-2 py-1 rounded-lg bg-black/40 border border-white/5 flex items-start gap-1 text-[8px] text-white/80">
+                <MapPin className="w-3 h-3 text-coral shrink-0 mt-0.5" />
+                <span className="line-clamp-1">Vị trí cuối: Vinhomes Grand Park, TP. Thủ Đức</span>
               </div>
 
-              {/* Trajectory / Sightings info */}
-              <div className="flex items-center justify-between text-[9px] pt-1 border-t border-white/5">
-                <span className="text-mint font-semibold flex items-center gap-1">
-                  <Eye className="w-3 h-3" /> 9 manh mối nhìn thấy
-                </span>
-                <span className="text-white/50">15 phút trước</span>
+              {/* Real Description */}
+              <p className="text-[8px] text-white/70 line-clamp-2 leading-relaxed">
+                Bé Mèo Ba Tư lông xám bạc pha trắng ở ngực, mắt vàng hổ phách, không đeo vòng cổ. Ai thấy xin báo giúp gia đình!
+              </p>
+
+              {/* Action Buttons */}
+              <div className="grid grid-cols-2 gap-1.5 pt-1">
+                <button className="py-1.5 px-2 rounded-lg bg-coral hover:bg-coral-dark text-white font-bold text-[8px] flex items-center justify-center gap-1 shadow-sm">
+                  <MapPin className="w-2.5 h-2.5" />
+                  <span>Báo nhìn thấy (9)</span>
+                </button>
+                <button className="py-1.5 px-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-[8px] flex items-center justify-center gap-1 shadow-sm">
+                  <CheckCircle2 className="w-2.5 h-2.5" />
+                  <span>Đã đón về</span>
+                </button>
               </div>
             </div>
 
-            {/* Author confirmation action */}
-            <div className="pt-1">
-              <button className="w-full py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-[10px] flex items-center justify-center gap-1.5 shadow-md">
-                <CheckCircle2 className="w-3.5 h-3.5" />
-                <span>✓ Xác nhận đã đón bé về an toàn</span>
-              </button>
+            {/* Bottom Tab Bar Preview */}
+            <div className="pt-1 flex items-center justify-around border-t border-white/10 text-[8px] text-white/50">
+              <span className="flex flex-col items-center">
+                <Compass className="w-3.5 h-3.5" />
+                <span>Khám phá</span>
+              </span>
+              <span className="flex flex-col items-center">
+                <Heart className="w-3.5 h-3.5" />
+                <span>Kết nối</span>
+              </span>
+              <span className="flex flex-col items-center text-coral font-bold">
+                <AlertTriangle className="w-3.5 h-3.5" />
+                <span>SOS</span>
+              </span>
+              <span className="flex flex-col items-center">
+                <User className="w-3.5 h-3.5" />
+                <span>Tôi</span>
+              </span>
             </div>
           </div>
         </div>
@@ -189,27 +221,32 @@ export const HeroTriplePhones: React.FC = () => {
           {/* App Header Bar (Pawty Dating) */}
           <div className="px-4 py-2 flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-lg bg-coral flex items-center justify-center text-white text-base shadow-md">
-                🐾
-              </div>
+              <img
+                src="/assets/pawty-icon.png"
+                alt="Pawty"
+                className="w-7 h-7 rounded-lg object-contain bg-white/10 p-0.5 shadow-md"
+              />
               <span className="font-display font-extrabold text-lg text-white tracking-tight">
                 PAWTY DATING
               </span>
             </div>
             
-            <div className="flex items-center gap-2 text-[10px] text-mint font-bold px-2.5 py-1 rounded-full bg-mint/15 border border-mint/30">
+            <div className="flex items-center gap-1.5 text-[10px] text-mint font-bold px-2.5 py-1 rounded-full bg-mint/15 border border-mint/30">
               <ShieldCheck className="w-3.5 h-3.5" />
               <span>Safe Pet</span>
             </div>
           </div>
 
-          {/* Subheader / Tabs */}
-          <div className="px-3 py-1 flex items-center gap-2 overflow-x-auto no-scrollbar text-xs">
+          {/* Subheader / Intent Selector */}
+          <div className="px-3 py-1 flex items-center gap-1.5 overflow-x-auto no-scrollbar text-xs">
             <span className="px-3 py-1 rounded-full bg-coral text-white font-bold whitespace-nowrap text-[11px] shadow-sm">
-              Khám phá bạn dắt dạo
+              Bạn chơi chung
             </span>
             <span className="px-3 py-1 rounded-full bg-white/10 text-white/70 font-semibold whitespace-nowrap text-[11px]">
-              Lời mời kết nối
+              Hẹn hò
+            </span>
+            <span className="px-3 py-1 rounded-full bg-white/10 text-white/70 font-semibold whitespace-nowrap text-[11px]">
+              Giao lưu
             </span>
           </div>
 
@@ -262,9 +299,8 @@ export const HeroTriplePhones: React.FC = () => {
               </div>
             </div>
 
-            {/* FB Dating Action Buttons: Skip & Send Walk Invite */}
+            {/* Action Buttons: Skip & Send Walk Invite */}
             <div className="py-2.5 flex items-center gap-2">
-              {/* Skip / Next Profile Button */}
               <button
                 className="w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white/80 hover:text-white transition-all shadow-md active:scale-90"
                 aria-label="Xem hồ sơ khác"
@@ -273,7 +309,6 @@ export const HeroTriplePhones: React.FC = () => {
                 <X className="w-5 h-5 text-gray-300" />
               </button>
 
-              {/* Send Walk Invite Button (FB Dating Primary CTA) */}
               <button
                 className="flex-1 h-11 rounded-full bg-gradient-to-r from-coral to-rose-500 hover:from-coral-dark hover:to-rose-600 flex items-center justify-center gap-1.5 text-white font-display font-bold text-xs transition-all shadow-lg shadow-coral/40 active:scale-95"
                 aria-label="Gửi lời mời dắt dạo"
@@ -284,19 +319,20 @@ export const HeroTriplePhones: React.FC = () => {
             </div>
           </div>
 
-          {/* Bottom App Navigation Bar (FB Style: Bảng tin, Hẹn hò, SOS, Tôi) */}
+          {/* Bottom App Navigation Bar (Matches Pawty App Bottom Bar) */}
           <div className="h-12 border-t border-white/10 bg-black/60 backdrop-blur-md flex items-center justify-around px-2 text-white/50 text-[9px]">
             <div className="flex flex-col items-center gap-0.5 hover:text-white cursor-pointer">
-              <MessageSquare className="w-4 h-4" />
-              <span>Bảng tin</span>
+              <Compass className="w-4 h-4" />
+              <span>Khám phá</span>
             </div>
             <div className="flex flex-col items-center gap-0.5 text-coral font-bold cursor-pointer">
               <Heart className="w-4 h-4 fill-coral" />
-              <span>Hẹn dạo</span>
+              <span>Kết nối</span>
             </div>
-            <div className="flex flex-col items-center gap-0.5 hover:text-white cursor-pointer">
-              <AlertTriangle className="w-4 h-4 text-rose-400" />
-              <span>SOS</span>
+            <div className="flex flex-col items-center gap-0.5 hover:text-white cursor-pointer relative">
+              <MessageCircle className="w-4 h-4" />
+              <span className="absolute -top-1 -right-2 w-3.5 h-3.5 rounded-full bg-coral text-white text-[8px] flex items-center justify-center font-bold">2</span>
+              <span>Tin nhắn</span>
             </div>
             <div className="flex flex-col items-center gap-0.5 hover:text-white cursor-pointer">
               <User className="w-4 h-4" />
