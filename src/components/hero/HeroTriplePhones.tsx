@@ -232,7 +232,7 @@ export const HeroTriplePhones: React.FC = () => {
                 <img
                   src="/assets/pawty-wordmark.png"
                   alt="Pawty"
-                  className="h-7 sm:h-8 w-auto object-contain drop-shadow-xs"
+                  className="h-8 sm:h-9 md:h-10 w-auto object-contain drop-shadow-xs"
                 />
                 <span className="font-display font-bold text-[11px] text-coral-light tracking-wider uppercase px-1.5 py-0.5 rounded-md bg-coral/20 border border-coral/30">
                   DATING

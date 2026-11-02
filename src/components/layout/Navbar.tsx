@@ -71,11 +71,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo, onNavigateSection })
             className="flex items-center gap-3 cursor-pointer group"
           >
             {/* Pawty Icon Squircle */}
-            <div className="w-10 h-10 rounded-2xl bg-white shadow-md flex items-center justify-center p-1 group-hover:scale-105 transition-transform duration-200">
+            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-white shadow-md flex items-center justify-center p-1.5 group-hover:scale-105 transition-transform duration-200">
               <img
                 src="/assets/pawty-icon.png"
                 alt="Pawty Icon"
-                className="w-8 h-8 object-contain"
+                className="w-8 h-8 sm:w-9 sm:h-9 object-contain"
                 onError={(e) => {
                   // Fallback to emoji if image is not loaded
                   (e.currentTarget as HTMLElement).style.display = 'none';
@@ -92,15 +92,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo, onNavigateSection })
             
             {/* Wordmark and Subtitle */}
             <div className="flex flex-col text-left justify-center">
-              <div className="flex items-center gap-1.5 h-7 sm:h-8">
+              <div className="flex items-center h-10 sm:h-12 md:h-14">
                 <img
                   src="/assets/pawty-wordmark.png"
                   alt="Pawty"
-                  className="h-full w-auto object-contain drop-shadow-xs"
+                  className="h-full w-auto object-contain drop-shadow-xs -ml-0.5"
                 />
               </div>
               <span
-                className={`text-[9px] sm:text-[10px] font-bold tracking-wider uppercase mt-0.5 ${
+                className={`text-[9px] sm:text-[10px] font-bold tracking-wider uppercase -mt-1 sm:-mt-1.5 ${
                   isScrolled ? 'text-charcoal-light' : 'text-white/90 drop-shadow-xs'
                 }`}
               >

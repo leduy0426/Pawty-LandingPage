@@ -27,7 +27,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal, onNavigateSection }
               <img
                 src="/assets/pawty-wordmark.png"
                 alt="Pawty"
-                className="h-9 sm:h-10 w-auto object-contain"
+                className="h-11 sm:h-13 md:h-14 w-auto object-contain"
               />
             </div>
 
