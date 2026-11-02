@@ -18,13 +18,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo, onNavigateSection })
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Navigation matching VNHUB menu layout
   const navLinks = [
-    { label: 'Home', target: 'hero' },
-    { label: 'Giới thiệu dịch vụ', target: 'features' },
-    { label: 'Tính năng nổi bật', target: 'radar' },
-    { label: 'Hướng dẫn sử dụng', target: 'safety' },
-    { label: 'Gói Sen VIP', target: 'pricing' },
+    { label: 'Trang chủ', target: 'hero' },
+    { label: 'Tính năng', target: 'features' },
+    { label: 'Pawty Dating', target: 'dating' },
+    { label: 'An toàn Safe Pet', target: 'safety' },
+    { label: 'Hệ sinh thái miễn phí', target: 'ecosystem' },
+    { label: 'Hỏi đáp', target: 'faq' },
   ];
 
   return (

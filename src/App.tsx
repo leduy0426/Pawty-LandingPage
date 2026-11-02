@@ -5,7 +5,7 @@ import { TrustStatsSection } from './components/sections/TrustStatsSection';
 import { FeaturesBentoSection } from './components/sections/FeaturesBentoSection';
 import { InteractiveRadarSection } from './components/sections/InteractiveRadarSection';
 import { SafetyPillarSection } from './components/sections/SafetyPillarSection';
-import { PricingVipSection } from './components/sections/PricingVipSection';
+import { FreeEcosystemSection } from './components/sections/FreeEcosystemSection';
 import { TestimonialsSection } from './components/sections/TestimonialsSection';
 import { FaqSection } from './components/sections/FaqSection';
 import { DownloadCtaSection } from './components/sections/DownloadCtaSection';
@@ -29,10 +29,10 @@ export const App: React.FC = () => {
       {/* Top Announcement Bar */}
       <div className="bg-gradient-to-r from-coral via-coral-light to-mint-dark text-white text-xs sm:text-sm py-2 px-4 text-center font-bold flex items-center justify-center gap-2 shadow-sm">
         <Gift className="w-4 h-4 text-white animate-bounce" />
-        <span>Ưu đãi cư dân đô thị: Đăng ký hôm nay tặng ngay Voucher -35% dịch vụ Pet Spa & Cafe nội khu!</span>
+        <span>Ưu đãi cư dân đô thị: Đăng ký hôm nay tặng ngay Voucher -35% dịch vụ Pet Spa &amp; Cafe nội khu!</span>
         <button
           onClick={() => scrollToSection('download')}
-          className="underline decoration-white/70 hover:decoration-white ml-1 text-white hidden sm:inline"
+          className="underline decoration-white/70 hover:decoration-white ml-1 text-white hidden sm:inline cursor-pointer"
         >
           Nhận ngay →
         </button>
@@ -40,21 +40,21 @@ export const App: React.FC = () => {
 
       {/* Sticky Navigation */}
       <Navbar
-        onOpenDemo={() => scrollToSection('radar')}
+        onOpenDemo={() => scrollToSection('dating')}
         onNavigateSection={scrollToSection}
       />
 
       {/* Main Content Sections */}
       <main className="flex-1">
         <HeroSection
-          onExploreRadar={() => scrollToSection('radar')}
+          onExploreRadar={() => scrollToSection('dating')}
           onDownloadClick={() => scrollToSection('download')}
         />
         <TrustStatsSection />
         <FeaturesBentoSection onLearnMore={() => scrollToSection('safety')} />
         <InteractiveRadarSection />
         <SafetyPillarSection />
-        <PricingVipSection onUpgradeClick={() => scrollToSection('download')} />
+        <FreeEcosystemSection onDownloadClick={() => scrollToSection('download')} />
         <TestimonialsSection />
         <FaqSection />
         <DownloadCtaSection />
@@ -66,7 +66,7 @@ export const App: React.FC = () => {
         onNavigateSection={scrollToSection}
       />
 
-      {/* Legal & Policy Modal (Referenced from VNHUB_Web style) */}
+      {/* Legal & Policy Modal */}
       <LegalModal
         activeDoc={activeLegalDoc}
         onClose={() => setActiveLegalDoc(null)}
@@ -77,4 +77,3 @@ export const App: React.FC = () => {
 };
 
 export default App;
-

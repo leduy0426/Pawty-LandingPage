@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Sparkles, ArrowRight, RotateCcw } from 'lucide-react';
+import { ShieldCheck, Sparkles, ArrowRight, HeartHandshake } from 'lucide-react';
 import { HeroTiltedCardsMosaic } from '../hero/HeroTiltedCardsMosaic';
 import { HeroTriplePhones } from '../hero/HeroTriplePhones';
 
@@ -91,7 +91,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreRadar, onDown
               transition={{ duration: 0.7, delay: 0.45 }}
               className="text-sm sm:text-base md:text-lg text-white/90 font-body leading-relaxed max-w-xl text-left font-normal"
             >
-              Pawty là siêu ứng dụng đầu tiên tại Việt Nam kết nối cộng đồng thú cưng chung cư cao cấp. Đột phá với <strong className="text-mint font-bold">✨ Trợ lý AI Google Gemini</strong> tự động viết mô tả tìm Boss lạc, radar quẹt thẻ tìm bạn dắt dạo tuần hoàn không bao giờ hết thẻ, và hồ sơ <strong className="text-white font-bold">Pet Family Passport</strong> minh bạch sổ tiêm Safe Pet.
+              Pawty là siêu ứng dụng kết nối cộng đồng thú cưng đô thị, kết hợp hoàn hảo giữa <strong className="text-white font-bold">Mạng Xã Hội khoảnh khắc</strong> và không gian <strong className="text-mint font-bold">Pawty Dating</strong> (chuẩn phong cách Facebook &amp; Facebook Dating). Tích hợp <strong className="text-white font-bold">✨ Trợ lý AI Google Gemini</strong> tìm Boss lạc và hồ sơ <strong className="text-white font-bold">Pet Family Passport</strong> minh bạch sổ tiêm Safe Pet.
             </motion.p>
 
             {/* Store Badges & Call to Actions */}
@@ -101,12 +101,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreRadar, onDown
               transition={{ duration: 0.7, delay: 0.6 }}
               className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4"
             >
-              {/* Primary Action Button: Explore Interactive Radar */}
+              {/* Primary Action Button: Explore Interactive Dating */}
               <button
                 onClick={onExploreRadar}
                 className="px-7 py-4 rounded-full bg-mint text-charcoal hover:bg-mint-dark hover:text-white font-display font-bold text-base shadow-lg shadow-mint/30 hover:shadow-xl hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2 group cursor-pointer"
               >
-                <span>⚡ Trải Nghiệm Radar Ngay</span>
+                <span>⚡ Trải Nghiệm Pawty Dating</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
 
@@ -135,8 +135,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreRadar, onDown
                 <span>AI Gemini Vision 3s</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <RotateCcw className="w-4 h-4 text-amber-300" />
-                <span>Quẹt thẻ vô tận &amp; Hoàn tác</span>
+                <HeartHandshake className="w-4 h-4 text-amber-300" />
+                <span>Hẹn hò chuẩn FB Dating</span>
               </div>
             </motion.div>
 

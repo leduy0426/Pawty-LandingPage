@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { CORE_FEATURES } from '../../data/landingData';
-import { ShieldCheck, Compass, MessageCircleHeart, Flame, Sparkles, RotateCcw, ArrowUpRight } from 'lucide-react';
+import { ShieldCheck, Compass, MessageCircleHeart, Flame, Sparkles, RotateCcw, ArrowUpRight, Users, HeartHandshake } from 'lucide-react';
 
 interface FeaturesBentoProps {
   onLearnMore?: (featureId: string) => void;
@@ -10,6 +10,10 @@ interface FeaturesBentoProps {
 export const FeaturesBentoSection: React.FC<FeaturesBentoProps> = ({ onLearnMore }) => {
   const getIcon = (iconName: string) => {
     switch (iconName) {
+      case 'Users':
+        return <Users className="w-7 h-7 text-coral" />;
+      case 'HeartHandshake':
+        return <HeartHandshake className="w-7 h-7 text-amber-500" />;
       case 'Sparkles':
         return <Sparkles className="w-7 h-7 text-danger animate-pulse" />;
       case 'ShieldCheck':

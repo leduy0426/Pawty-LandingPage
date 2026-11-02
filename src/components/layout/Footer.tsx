@@ -62,10 +62,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal, onNavigateSection }
               </li>
               <li>
                 <button
-                  onClick={() => onNavigateSection('radar')}
+                  onClick={() => onNavigateSection('dating')}
                   className="hover:text-coral transition-colors"
                 >
-                  Radar Quẹt Thẻ 3km
+                  Pawty Dating Hẹn Dạo
                 </button>
               </li>
               <li>
@@ -78,10 +78,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal, onNavigateSection }
               </li>
               <li>
                 <button
-                  onClick={() => onNavigateSection('pricing')}
+                  onClick={() => onNavigateSection('ecosystem')}
                   className="hover:text-coral transition-colors"
                 >
-                  Gói Sen VIP (49k)
+                  Hệ Sinh Thái Miễn Phí
                 </button>
               </li>
               <li>
