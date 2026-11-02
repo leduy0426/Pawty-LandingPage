@@ -8,6 +8,19 @@ export interface FeatureItem {
   colorScheme: 'coral' | 'mint' | 'warning' | 'danger';
 }
 
+export interface PetItemMock {
+  id: string;
+  name: string;
+  species: 'Chó' | 'Mèo';
+  breed: string;
+  age: string;
+  avatar: string;
+  isVaccinated: boolean;
+  personality: string[];
+  goodHabits: string[];
+  watchOutHabits: string[];
+}
+
 export interface DatingProfileMock {
   id: string;
   // Compatibility fields
@@ -33,7 +46,10 @@ export interface DatingProfileMock {
   connectionGoal: string;
   ownerTags: string[];
 
-  // Pet Info (Mặt sau - Back Face)
+  // Danh sách TẤT CẢ CÁC PET CỦA CHỦ ĐÓ (Mặt sau)
+  pets: PetItemMock[];
+
+  // Primary Pet Info (Mặt sau - Back Face default)
   petName: string;
   petAge: string;
   petAvatar: string;
@@ -131,6 +147,34 @@ export const MOCK_DATING_PROFILES: DatingProfileMock[] = [
     petName: 'Bơ Béo',
     petAge: '2 tuổi',
     petAvatar: 'https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=600&q=80',
+
+    // Danh sách TẤT CẢ PET CỦA TUẤN (2 bé)
+    pets: [
+      {
+        id: 'p1-pet1',
+        name: 'Bơ Béo',
+        species: 'Chó',
+        breed: 'Golden Retriever',
+        age: '2 tuổi',
+        avatar: 'https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=600&q=80',
+        isVaccinated: true,
+        personality: ['Ấm áp', 'Kiên nhẫn', 'Thích bơi'],
+        goodHabits: ['Cực kỳ yêu thương trẻ em', 'Biết bắt tay và ngồi chờ hiệu lệnh', 'Không sủa vô cớ'],
+        watchOutHabits: ['Thích nhảy xuống hồ bơi công viên'],
+      },
+      {
+        id: 'p1-pet2',
+        name: 'Miu Miu',
+        species: 'Mèo',
+        breed: 'Mèo Anh Lông Ngắn',
+        age: '1 tuổi',
+        avatar: 'https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=600&q=80',
+        isVaccinated: true,
+        personality: ['Quấn chủ', 'Thích ngủ nướng', 'Ngoan ngoãn'],
+        goodHabits: ['Ăn hạt đúng giờ', 'Biết đi vệ sinh đúng khay cát', 'Đã tiêm phòng'],
+        watchOutHabits: ['Hơi nhút nhát khi gặp cún to'],
+      },
+    ],
   },
   {
     id: 'profile-2',
@@ -158,6 +202,34 @@ export const MOCK_DATING_PROFILES: DatingProfileMock[] = [
     petName: 'Mochi',
     petAge: '1.5 tuổi',
     petAvatar: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=600&q=80',
+
+    // Danh sách TẤT CẢ PET CỦA NAM (2 bé)
+    pets: [
+      {
+        id: 'p2-pet1',
+        name: 'Mochi',
+        species: 'Chó',
+        breed: 'Corgi Pembroke',
+        age: '1.5 tuổi',
+        avatar: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=600&q=80',
+        isVaccinated: true,
+        personality: ['Năng động', 'Lăng xăng', 'Thèm ăn'],
+        goodHabits: ['Biết đi vệ sinh đúng khay', 'Thích hòa đồng với cún nhỏ', 'Đã tiêm phòng vắc-xin'],
+        watchOutHabits: ['Hơi sợ tiếng còi xe lớn', 'Hay tranh đồ chơi bóng tennis'],
+      },
+      {
+        id: 'p2-pet2',
+        name: 'Bắp',
+        species: 'Chó',
+        breed: 'Poodle Toy Màu Nâu',
+        age: '8 tháng',
+        avatar: 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=600&q=80',
+        isVaccinated: true,
+        personality: ['Thông minh', 'Quấn chân', 'Hiếu động'],
+        goodHabits: ['Đang học lệnh cơ bản', 'Thích chơi nhặt bóng', 'Đã tiêm 2 mũi'],
+        watchOutHabits: ['Thích nhảy mừng khi thấy người quen'],
+      },
+    ],
   },
   {
     id: 'profile-3',
@@ -177,7 +249,7 @@ export const MOCK_DATING_PROFILES: DatingProfileMock[] = [
     ownerAge: 24,
     ownerAvatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80',
     ownerJob: 'Sáng tạo nội dung (Content Creator)',
-    ownerBio: 'Nuôi một bé mèo Ba Tư điềm đạm. Cuối tuần thường cho bé đi picnic công viên trong balo phi thuyền thoáng mát. Rất vui được kết nối hội Sen nuôi mèo!',
+    ownerBio: 'Nuôi hai bé mèo đáng yêu. Cuối tuần thường cho bé đi picnic công viên trong balo phi thuyền thoáng mát. Rất vui được kết nối hội Sen nuôi mèo!',
     ownerArea: 'P. Bến Nghé, Quận 1, TP.HCM',
     connectionGoal: 'Giao lưu hội Sen nuôi Mèo',
     ownerTags: ['MêMèo', 'Picnic', 'ChillCuốiTuần'],
@@ -185,6 +257,34 @@ export const MOCK_DATING_PROFILES: DatingProfileMock[] = [
     petName: 'Sâu',
     petAge: '1 tuổi',
     petAvatar: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=600&q=80',
+
+    // Danh sách TẤT CẢ PET CỦA TRANG (2 bé)
+    pets: [
+      {
+        id: 'p3-pet1',
+        name: 'Sâu',
+        species: 'Mèo',
+        breed: 'Mèo Ba Tư Lông Dài',
+        age: '1 tuổi',
+        avatar: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=600&q=80',
+        isVaccinated: true,
+        personality: ['Điềm tĩnh', 'Mắt hổ phách', 'Thích vuốt ve'],
+        goodHabits: ['Đã triệt sản', 'Tiêm phòng đầy đủ', 'Ngoan ngoãn trong túi phi thuyền'],
+        watchOutHabits: ['Sợ tiếng chó sủa to'],
+      },
+      {
+        id: 'p3-pet2',
+        name: 'Simba',
+        species: 'Mèo',
+        breed: 'Ragdoll Mắt Xanh',
+        age: '1.5 tuổi',
+        avatar: 'https://images.unsplash.com/photo-1513360309081-38f076278f1e?auto=format&fit=crop&w=600&q=80',
+        isVaccinated: true,
+        personality: ['Dịu dàng', 'Lông xù mềm', 'Thích nằm lòng'],
+        goodHabits: ['Rất hiền lành', 'Không cào đồ đạc', 'Đã tiêm phòng'],
+        watchOutHabits: ['Khá nhút nhát ở nơi đông người'],
+      },
+    ],
   },
   {
     id: 'profile-4',
@@ -212,6 +312,34 @@ export const MOCK_DATING_PROFILES: DatingProfileMock[] = [
     petName: 'LuLu',
     petAge: '2.5 tuổi',
     petAvatar: 'https://images.unsplash.com/photo-1534361960057-19889db9621e?auto=format&fit=crop&w=600&q=80',
+
+    // Danh sách TẤT CẢ PET CỦA MY (2 bé)
+    pets: [
+      {
+        id: 'p4-pet1',
+        name: 'LuLu',
+        species: 'Chó',
+        breed: 'Poodle Toy Trắng',
+        age: '2.5 tuổi',
+        avatar: 'https://images.unsplash.com/photo-1534361960057-19889db9621e?auto=format&fit=crop&w=600&q=80',
+        isVaccinated: true,
+        personality: ['Thông minh', 'Quấn chủ', 'Duyên dáng'],
+        goodHabits: ['Được tỉa lông gấu bông định kỳ', 'Thích kết bạn đi dạo 17h', 'Không kén ăn'],
+        watchOutHabits: ['Đôi khi nhảy lên người mừng rỡ'],
+      },
+      {
+        id: 'p4-pet2',
+        name: 'Đậu Đậu',
+        species: 'Chó',
+        breed: 'Beagle Ba Màu',
+        age: '1 tuổi',
+        avatar: 'https://images.unsplash.com/photo-1505628346881-b72b27e84530?auto=format&fit=crop&w=600&q=80',
+        isVaccinated: true,
+        personality: ['Tò mò', 'Mũi thính', 'Thân thiện'],
+        goodHabits: ['Thích chạy bộ', 'Hòa đồng với mọi người', 'Đã tiêm phòng'],
+        watchOutHabits: ['Hay đánh hơi đồ ăn ven đường'],
+      },
+    ],
   },
   {
     id: 'profile-5',
@@ -239,6 +367,34 @@ export const MOCK_DATING_PROFILES: DatingProfileMock[] = [
     petName: 'Bánh Mì',
     petAge: '1.2 tuổi',
     petAvatar: 'https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=600&q=80',
+
+    // Danh sách TẤT CẢ PET CỦA KHOA (2 bé)
+    pets: [
+      {
+        id: 'p5-pet1',
+        name: 'Bánh Mì',
+        species: 'Mèo',
+        breed: 'Mèo Anh Lông Ngắn Xám',
+        age: '1.2 tuổi',
+        avatar: 'https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=600&q=80',
+        isVaccinated: true,
+        personality: ['Chảnh mèo', 'Thích phơi nắng', 'Đáng yêu'],
+        goodHabits: ['Thích nằm tắm nắng ban công', 'Ăn hạt pate đúng giờ', 'Đã tiêm phòng'],
+        watchOutHabits: ['Không thích người lạ bế đột ngột'],
+      },
+      {
+        id: 'p5-pet2',
+        name: 'Bơ Ngọt',
+        species: 'Mèo',
+        breed: 'Munchkin Chân Ngắn',
+        age: '10 tháng',
+        avatar: 'https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&w=600&q=80',
+        isVaccinated: true,
+        personality: ['Chân ngắn cũn', 'Tăng động', 'Dễ thương'],
+        goodHabits: ['Quấn chủ', 'Thích leo trèo', 'Đã tiêm vắc-xin'],
+        watchOutHabits: ['Hay nghịch cuộn len'],
+      },
+    ],
   },
 ];
 
@@ -280,7 +436,7 @@ export const TESTIMONIALS: TestimonialItem[] = [
 export const FAQ_LIST: FaqItem[] = [
   {
     question: 'Pawty hoạt động như thế nào? Thẻ hẹn dạo 2 mặt Sen & Boss là gì?',
-    answer: 'Pawty là ứng dụng kết nối trực tiếp những người nuôi thú cưng (Pet Owners). Trong không gian Pawty Dating, mỗi hồ sơ được thiết kế dạng thẻ lật 2 mặt độc đáo: Mặt trước là hình ảnh và thông tin của Chủ nuôi (Sen); khi bạn chạm nhẹ vào thẻ, thẻ sẽ xoay lại và hiển thị đầy đủ hình ảnh, giống loài, tính cách của bé Boss cưng. Bạn có thể dễ dàng gửi lời mời dắt dạo để cùng hẹn gặp giao lưu.',
+    answer: 'Pawty là ứng dụng kết nối trực tiếp những người nuôi thú cưng (Pet Owners). Trong không gian Pawty Dating, mỗi hồ sơ được thiết kế dạng thẻ lật 2 mặt độc đáo: Mặt trước là hình ảnh và thông tin của Chủ nuôi (Sen); khi bạn chạm nhẹ vào thẻ, thẻ sẽ xoay lại và hiển thị đầy đủ hình ảnh, giống loài, tính cách của các bé Boss cưng. Bạn có thể bấm nút mũi tên trái/phải trên thẻ để xem tất cả các bé pet của người chủ đó, và bấm nút ở dưới để xem người khác hoặc gửi lời mời dắt dạo.',
     category: 'Mô Hình Hoạt Động',
   },
   {

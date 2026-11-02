@@ -6,32 +6,65 @@ import { Heart, X, MapPin, CheckCircle2, ChevronLeft, ChevronRight, MessageCircl
 export const InteractiveRadarSection: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
+  const [activePetIndex, setActivePetIndex] = useState(0);
   const [invitedProfile, setInvitedProfile] = useState<DatingProfileMock | null>(null);
 
   const activeIndex = currentIndex % MOCK_DATING_PROFILES.length;
   const current = MOCK_DATING_PROFILES[activeIndex] || MOCK_DATING_PROFILES[0];
 
-  const handleNext = () => {
+  // Pet hiện tại đang xem của chủ nuôi này
+  const ownerPets = current.pets && current.pets.length > 0 ? current.pets : [
+    {
+      id: current.id,
+      name: current.petName,
+      species: current.species,
+      breed: current.breed,
+      age: current.petAge,
+      avatar: current.petAvatar,
+      isVaccinated: current.isVaccinated,
+      personality: current.personality,
+      goodHabits: current.goodHabits,
+      watchOutHabits: current.watchOutHabits,
+    }
+  ];
+
+  const safePetIdx = activePetIndex % ownerPets.length;
+  const currentPet = ownerPets[safePetIdx] || ownerPets[0];
+
+  // Nút dưới: Next sang người khác
+  const handleNextPerson = () => {
     setIsFlipped(false);
-    setCurrentIndex((prev) => prev + 1);
+    setActivePetIndex(0);
+    setCurrentIndex((prev) => (prev + 1) % MOCK_DATING_PROFILES.length);
   };
 
-  const handlePrev = () => {
-    setIsFlipped(false);
-    setCurrentIndex((prev) => (prev > 0 ? prev - 1 : MOCK_DATING_PROFILES.length - 1));
+  // Nút mũi tên trái: Xem pet trước của chủ này
+  const handlePrevPet = (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    setActivePetIndex((prev) => (prev > 0 ? prev - 1 : ownerPets.length - 1));
+    setIsFlipped(true); // Lật sang mặt sau để xem pet
   };
 
+  // Nút mũi tên phải: Xem pet tiếp theo của chủ này
+  const handleNextPet = (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    setActivePetIndex((prev) => (prev + 1) % ownerPets.length);
+    setIsFlipped(true); // Lật sang mặt sau để xem pet
+  };
+
+  // Ấn vào thẻ: lật giữa Mặt trước (Chủ) và Mặt sau (Pet)
   const handleFlipCard = () => {
     setIsFlipped((prev) => !prev);
   };
 
+  // Nút dưới: Thả tim gửi lời mời dắt dạo
   const handleSendInvite = () => {
     setInvitedProfile(current);
   };
 
   const handleCloseInviteModal = () => {
     setInvitedProfile(null);
-    handleNext();
+    handleNextPerson();
   };
 
   return (
@@ -47,12 +80,12 @@ export const InteractiveRadarSection: React.FC = () => {
             Khám phá &amp; kết nối những người nuôi pet quanh bạn
           </h2>
           <p className="text-base sm:text-lg text-charcoal-light">
-            Thẻ hẹn dạo 2 mặt độc đáo: <span className="font-bold text-charcoal">Mặt trước là thông tin Chủ nuôi (Sen)</span>, chạm vào thẻ để <span className="text-coral font-bold">quay thẻ lại xem thông tin Boss</span>. Cùng gửi lời mời dắt dạo và giao lưu an tâm!
+            Thẻ hẹn dạo 2 mặt độc đáo: <span className="font-bold text-charcoal">Mặt trước là thông tin Chủ nuôi (Sen)</span>, chạm vào thẻ để <span className="text-coral font-bold">lật sang xem Boss</span>. Dùng 2 nút mũi tên <span className="font-bold">(&lt; &gt;)</span> để duyệt qua tất cả thú cưng của người đó!
           </p>
 
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-mint/20 border border-mint-dark/30 text-emerald-800 text-xs font-bold">
-            <RotateCw className="w-3.5 h-3.5 animate-spin-slow text-emerald-700" />
-            <span>Mẹo: Chạm vào thẻ bất kỳ lúc nào để lật giữa Sen 👤 và Boss 🐾</span>
+            <RotateCw className="w-3.5 h-3.5 text-emerald-700" />
+            <span>Chạm vào thẻ để lật 👤 Sen &amp; 🐾 Boss • Bấm mũi tên để xem tất cả {ownerPets.length} bé cưng của chủ này</span>
           </div>
         </div>
 
@@ -91,32 +124,30 @@ export const InteractiveRadarSection: React.FC = () => {
                     <span>{current.distance}</span>
                   </div>
 
-                  {/* Flip Hint Button on Image */}
-                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-charcoal hover:bg-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1 shadow-md border border-coral/20">
-                    <RotateCw className="w-3.5 h-3.5 text-coral" />
-                    <span>Lật xem Boss</span>
+                  {/* Pets count pill indicator */}
+                  <div
+                    onClick={handleNextPet}
+                    className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm text-charcoal hover:bg-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-md border border-coral/30 hover:scale-105 transition-all"
+                    title="Bấm để xem các Boss của chủ này"
+                  >
+                    <Sparkles className="w-3.5 h-3.5 text-coral" />
+                    <span>{ownerPets.length} Boss nuôi 🐾</span>
                   </div>
 
-                  {/* Navigation arrows */}
+                  {/* 2 Nút mũi tên sang trái/phải: Duyệt tất cả các pet của người chủ đó */}
                   <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handlePrev();
-                    }}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center transition-all cursor-pointer z-10"
-                    title="Người trước"
+                    onClick={handlePrevPet}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 hover:bg-coral text-white flex items-center justify-center transition-all cursor-pointer z-10 shadow-lg active:scale-90"
+                    title="Xem Boss trước của chủ này"
                   >
-                    <ChevronLeft className="w-5 h-5" />
+                    <ChevronLeft className="w-6 h-6" />
                   </button>
                   <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleNext();
-                    }}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center transition-all cursor-pointer z-10"
-                    title="Người tiếp theo"
+                    onClick={handleNextPet}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 hover:bg-coral text-white flex items-center justify-center transition-all cursor-pointer z-10 shadow-lg active:scale-90"
+                    title="Xem Boss tiếp theo của chủ này"
                   >
-                    <ChevronRight className="w-5 h-5" />
+                    <ChevronRight className="w-6 h-6" />
                   </button>
                 </div>
 
@@ -166,65 +197,67 @@ export const InteractiveRadarSection: React.FC = () => {
                   <div className="pt-2 text-center border-t border-gray-100 mt-2">
                     <span className="text-[11px] font-bold text-coral inline-flex items-center gap-1">
                       <RotateCw className="w-3 h-3" />
-                      Chạm thẻ để xem Boss bé cưng: {current.petName} ({current.species}) →
+                      Chạm thẻ để xem {ownerPets.length} Boss cưng (hoặc bấm &lt; &gt;) →
                     </span>
                   </div>
                 </div>
               </div>
 
               {/* ========================================================
-                  MẶT SAU (BACK FACE): THÔNG TIN BOSS NUÔI (PET)
+                  MẶT SAU (BACK FACE): THÔNG TIN CÁC BOSS NUÔI (PETS)
                   ======================================================== */}
               <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-white rounded-4xl overflow-hidden shadow-floating border border-mint-dark/30 flex flex-col justify-between select-none">
                 {/* Pet Photo Container */}
                 <div className="relative h-72 overflow-hidden bg-gray-100 shrink-0">
                   <img
-                    src={current.petAvatar}
-                    alt={current.petName}
+                    src={currentPet.avatar}
+                    alt={currentPet.name}
                     className="w-full h-full object-cover select-none pointer-events-none"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
 
-                  {/* Pet Species Badge */}
+                  {/* Pet Index Badge: Bé 1/2, Bé 2/2 */}
                   <div className="absolute top-4 left-4 bg-mint-dark text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-md">
                     <Sparkles className="w-3.5 h-3.5" />
-                    <span>Boss đi cùng • {current.species}</span>
+                    <span>Boss {safePetIdx + 1}/{ownerPets.length}: {currentPet.name} ({currentPet.species})</span>
                   </div>
 
                   {/* Self-Declared Vaccination Checkbox Badge */}
-                  {current.isVaccinated && (
+                  {currentPet.isVaccinated && (
                     <div className="absolute bottom-4 left-4 bg-emerald-600/90 backdrop-blur-md text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1 shadow-md">
                       <CheckCircle2 className="w-3.5 h-3.5" />
                       <span>Đã tiêm phòng</span>
                     </div>
                   )}
 
-                  {/* Flip Back Hint Button */}
-                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-charcoal hover:bg-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1 shadow-md border border-mint-dark/30">
-                    <RotateCw className="w-3.5 h-3.5 text-mint-dark" />
-                    <span>Xem chủ nuôi</span>
-                  </div>
+                  {/* Pet Dots Indicators */}
+                  {ownerPets.length > 1 && (
+                    <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-black/40 backdrop-blur-sm px-2.5 py-1.5 rounded-full">
+                      {ownerPets.map((_, pIdx) => (
+                        <div
+                          key={pIdx}
+                          className={`w-2 h-2 rounded-full transition-all ${
+                            pIdx === safePetIdx ? 'bg-mint w-4' : 'bg-white/50'
+                          }`}
+                        />
+                      ))}
+                    </div>
+                  )}
 
-                  {/* Navigation arrows */}
+                  {/* 2 Nút mũi tên sang trái/phải: Duyệt tất cả các pet của người chủ đó */}
                   <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handlePrev();
-                    }}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center transition-all cursor-pointer z-10"
-                    title="Người trước"
+                    onClick={handlePrevPet}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 hover:bg-emerald-600 text-white flex items-center justify-center transition-all cursor-pointer z-10 shadow-lg active:scale-90"
+                    title="Xem Boss trước của chủ này"
                   >
-                    <ChevronLeft className="w-5 h-5" />
+                    <ChevronLeft className="w-6 h-6" />
                   </button>
                   <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleNext();
-                    }}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center transition-all cursor-pointer z-10"
-                    title="Người tiếp theo"
+                    onClick={handleNextPet}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 hover:bg-emerald-600 text-white flex items-center justify-center transition-all cursor-pointer z-10 shadow-lg active:scale-90"
+                    title="Xem Boss tiếp theo của chủ này"
                   >
-                    <ChevronRight className="w-5 h-5" />
+                    <ChevronRight className="w-6 h-6" />
                   </button>
                 </div>
 
@@ -234,17 +267,17 @@ export const InteractiveRadarSection: React.FC = () => {
                     <div className="flex items-center justify-between">
                       <div>
                         <h3 className="font-display font-bold text-2xl text-charcoal flex items-center gap-2">
-                          {current.petName}
+                          {currentPet.name}
                           <span className="text-sm font-semibold text-charcoal-light">
-                            ({current.petAge})
+                            ({currentPet.age})
                           </span>
                         </h3>
                         <p className="text-xs font-semibold text-emerald-700 mt-0.5">
-                          {current.breed} • Nuôi bởi {current.ownerName}
+                          {currentPet.breed} • Nuôi bởi {current.ownerName}
                         </p>
                       </div>
                       <div className="flex gap-1 flex-wrap">
-                        {current.personality.map((tag, i) => (
+                        {currentPet.personality.map((tag, i) => (
                           <span
                             key={i}
                             className="text-[10px] bg-mint/30 text-emerald-800 font-bold px-2 py-0.5 rounded-md"
@@ -261,16 +294,16 @@ export const InteractiveRadarSection: React.FC = () => {
                         <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                         <span className="text-charcoal-light">
                           <strong className="text-charcoal font-semibold">Thói quen tốt: </strong>
-                          {current.goodHabits.join(', ')}
+                          {currentPet.goodHabits.join(', ')}
                         </span>
                       </div>
 
-                      {current.watchOutHabits.length > 0 && (
+                      {currentPet.watchOutHabits.length > 0 && (
                         <div className="flex items-start gap-2">
                           <span className="text-amber-500 font-bold shrink-0">⚠️</span>
                           <span className="text-charcoal-light">
                             <strong className="text-charcoal font-semibold">Lưu ý khi dạo: </strong>
-                            {current.watchOutHabits.join(', ')}
+                            {currentPet.watchOutHabits.join(', ')}
                           </span>
                         </div>
                       )}
@@ -289,31 +322,27 @@ export const InteractiveRadarSection: React.FC = () => {
             </motion.div>
           </div>
 
-          {/* Action Buttons: Skip & Send Walk Invite */}
+          {/* ========================================================
+              ĐÚNG 2 NÚT Ở DƯỚI THẺ THEO YÊU CẦU:
+              1. Bấm là next sang người khác ("Xem người khác")
+              2. Nút thả tim để dắt dạo ("Gửi lời mời dắt dạo")
+              ======================================================== */}
           <div className="pt-4 flex items-center gap-3">
-            {/* Skip / Next Button */}
+            {/* Button 1: Next sang người khác */}
             <button
-              onClick={handleNext}
-              className="flex-1 py-3.5 rounded-full bg-gray-100 hover:bg-gray-200 text-charcoal font-display font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition-all cursor-pointer"
+              onClick={handleNextPerson}
+              className="flex-1 py-4 rounded-full bg-gray-100 hover:bg-gray-200 text-charcoal font-display font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all cursor-pointer hover:shadow-sm"
+              title="Chuyển sang người chủ tiếp theo"
             >
               <X className="w-4 h-4 text-gray-500" />
               <span>Xem người khác</span>
             </button>
 
-            {/* Flip Card Quick Toggle Button */}
-            <button
-              onClick={handleFlipCard}
-              className="px-4 py-3.5 rounded-full bg-white hover:bg-gray-50 border border-gray-200 text-charcoal font-display font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-sm"
-              title="Lật thẻ qua lại"
-            >
-              <RotateCw className="w-4 h-4 text-coral" />
-              <span>{isFlipped ? 'Xem Sen 👤' : 'Xem Boss 🐾'}</span>
-            </button>
-
-            {/* Send Walk Invite Button */}
+            {/* Button 2: Thả tim để dắt dạo */}
             <button
               onClick={handleSendInvite}
-              className="flex-[2] py-3.5 rounded-full bg-gradient-to-r from-coral to-rose-500 hover:from-coral-dark hover:to-rose-600 text-white font-display font-bold text-xs sm:text-sm shadow-md shadow-coral/30 hover:shadow-lg hover:scale-102 active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer"
+              className="flex-[2] py-4 rounded-full bg-gradient-to-r from-coral to-rose-500 hover:from-coral-dark hover:to-rose-600 text-white font-display font-bold text-xs sm:text-sm shadow-md shadow-coral/30 hover:shadow-lg hover:scale-102 active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer"
+              title="Gửi lời mời dắt dạo tới chủ nuôi này"
             >
               <Heart className="w-4 h-4 fill-white" />
               <span>Gửi lời mời dắt dạo</span>
@@ -334,7 +363,7 @@ export const InteractiveRadarSection: React.FC = () => {
                   ĐÃ GỬI LỜI MỜI HẸN DẠO!
                 </h4>
                 <p className="text-sm text-white/90 max-w-xs leading-relaxed">
-                  Lời mời dắt dạo đã được gửi tới bạn <strong className="text-coral-light">{invitedProfile.ownerName}</strong> và bé <strong className="text-mint">{invitedProfile.petName}</strong>. Hai bạn có thể nhắn tin trao đổi điểm hẹn trung tâm thuận tiện nhất!
+                  Lời mời dắt dạo đã được gửi tới bạn <strong className="text-coral-light">{invitedProfile.ownerName}</strong> cùng các bé Boss ({ownerPets.map(p => p.name).join(', ')}). Hai bạn có thể nhắn tin trao đổi điểm hẹn trung tâm thuận tiện nhất!
                 </p>
 
                 <div className="flex gap-3 pt-2">
@@ -342,7 +371,7 @@ export const InteractiveRadarSection: React.FC = () => {
                     onClick={handleCloseInviteModal}
                     className="px-5 py-2.5 rounded-full bg-white/20 hover:bg-white/30 text-white font-bold text-xs transition-all cursor-pointer"
                   >
-                    Xem hồ sơ khác
+                    Xem người khác
                   </button>
                   <button
                     onClick={handleCloseInviteModal}
