@@ -7,7 +7,7 @@ interface SafePetBadgeProps {
 }
 
 export const SafePetBadge: React.FC<SafePetBadgeProps> = ({
-  label = 'Safe Pet • Đã Tiêm 7 Bệnh & Dại',
+  label = '✓ Đã Tiêm Phòng',
   className = '',
 }) => (
   <span

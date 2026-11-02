@@ -59,7 +59,7 @@ export const PetMatchCard: React.FC<PetMatchCardProps> = ({ pet, isSaved, onTogg
       </p>
 
       <ul className="flex flex-wrap gap-1.5" aria-label="Tính cách">
-        {pet.personality.map((trait) => (
+        {pet.personality.map((trait: string) => (
           <li
             key={trait}
             className="rounded-full bg-cream-warm px-2.5 py-1 font-body text-[11px] font-bold text-charcoal"

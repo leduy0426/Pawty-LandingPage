@@ -22,7 +22,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo, onNavigateSection })
     { label: 'Trang chủ', target: 'hero' },
     { label: 'Tính năng', target: 'features' },
     { label: 'Pawty Dating', target: 'dating' },
-    { label: 'An toàn Safe Pet', target: 'safety' },
     { label: 'Hệ sinh thái miễn phí', target: 'ecosystem' },
     { label: 'Hỏi đáp', target: 'faq' },
   ];

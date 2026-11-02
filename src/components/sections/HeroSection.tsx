@@ -71,7 +71,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreRadar, onDown
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-white text-xs sm:text-sm font-bold shadow-sm"
             >
               <Sparkles className="w-3.5 h-3.5 text-mint animate-pulse" />
-              <span>🐾 Siêu ứng dụng kết nối cộng đồng &amp; tìm bạn dắt dạo thú cưng chung cư</span>
+              <span>🐾 Siêu ứng dụng kết nối cộng đồng những người nuôi thú cưng đô thị</span>
             </motion.div>
 
             {/* Main Headline */}
@@ -91,7 +91,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreRadar, onDown
               transition={{ duration: 0.7, delay: 0.45 }}
               className="text-sm sm:text-base md:text-lg text-white/90 font-body leading-relaxed max-w-xl text-left font-normal"
             >
-              Pawty là siêu ứng dụng kết nối cộng đồng thú cưng đô thị, kết hợp hoàn hảo giữa <strong className="text-white font-bold">Mạng Xã Hội khoảnh khắc</strong> và không gian <strong className="text-mint font-bold">Pawty Dating</strong> (chuẩn phong cách Facebook &amp; Facebook Dating). Tính năng <strong className="text-white font-bold">Báo động SOS 3km</strong> tìm Boss lạc và hồ sơ <strong className="text-white font-bold">Safe Pet</strong> minh bạch sổ tiêm phòng.
+              Pawty là siêu ứng dụng kết nối cộng đồng những người nuôi thú cưng đô thị, kết hợp hoàn hảo giữa <strong className="text-white font-bold">Mạng Xã Hội khoảnh khắc</strong> và không gian <strong className="text-mint font-bold">Pawty Dating</strong> với thẻ lật 2 mặt Sen &amp; Boss độc đáo. Cùng tính năng <strong className="text-white font-bold">Báo động SOS 3km</strong> tìm Boss lạc và hồ sơ thú cưng tự khai báo tiêm phòng minh bạch.
             </motion.p>
 
             {/* Store Badges & Call to Actions */}

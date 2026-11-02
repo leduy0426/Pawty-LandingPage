@@ -8,8 +8,9 @@ export interface FeatureItem {
   colorScheme: 'coral' | 'mint' | 'warning' | 'danger';
 }
 
-export interface PetCardMock {
+export interface DatingProfileMock {
   id: string;
+  // Compatibility fields
   name: string;
   species: 'Chó' | 'Mèo';
   breed: string;
@@ -18,10 +19,27 @@ export interface PetCardMock {
   apartment: string;
   avatar: string;
   isVaccinated: boolean;
+  personality: string[];
   goodHabits: string[];
   watchOutHabits: string[];
-  personality: string[];
+
+  // Owner Info (Mặt trước - Front Face)
+  ownerName: string;
+  ownerAge: number;
+  ownerAvatar: string;
+  ownerJob: string;
+  ownerBio: string;
+  ownerArea: string;
+  connectionGoal: string;
+  ownerTags: string[];
+
+  // Pet Info (Mặt sau - Back Face)
+  petName: string;
+  petAge: string;
+  petAvatar: string;
 }
+
+export type PetCardMock = DatingProfileMock;
 
 export interface TestimonialItem {
   id: string;
@@ -40,30 +58,19 @@ export interface FaqItem {
   category: string;
 }
 
-export const APARTMENT_PARTNERS = [
-  'Vinhomes Central Park',
-  'Masteri Thảo Điền',
-  'Sala Đại Quang Minh',
-  'Vinhomes Grand Park',
-  'The Manor',
-  'Times City',
-  'Eco Green Saigon',
-  'Goldmark City'
-];
-
 export const KEY_STATS = [
-  { value: '100% Miễn Phí', label: 'Trọn đời cho mọi cư dân', detail: 'Không thu phí gói cước' },
-  { value: '1,200+', label: 'Chủ nuôi đã kết nối', detail: 'Cư dân chung cư đô thị' },
-  { value: '100%', label: 'Xác thực tiêm chủng Safe Pet', detail: 'Sổ tiêm 7 bệnh & phòng dại' },
-  { value: '48+', label: 'Cụm chung cư đô thị', detail: 'TP.HCM & Hà Nội' },
+  { value: '100% Miễn Phí', label: 'Trọn đời cho mọi chủ nuôi', detail: 'Không thu phí gói cước' },
+  { value: '1,200+', label: 'Người nuôi pet đã kết nối', detail: 'Cộng đồng Sen & Boss đô thị' },
+  { value: 'Tự Nguyện', label: 'Tự khai báo tiêm phòng', detail: 'Chủ nuôi chủ động cập nhật sổ tiêm' },
+  { value: 'Bán Kính 3km', label: 'Kết nối khu vực quanh bạn', detail: 'Hẹn dạo trung điểm gần nhà' },
 ];
 
 export const CORE_FEATURES: FeatureItem[] = [
   {
     id: 'social-feed',
     badge: 'CORE 1: MẠNG XÃ HỘI CHUẨN FACEBOOK',
-    title: 'Bảng Tin Khoảnh Khắc & Cộng Đồng Cư Dân',
-    description: 'Bảng tin chia sẻ hình ảnh, video hằng ngày của Boss (chuẩn phong cách Facebook & Instagram). Thả tim, bình luận, gắn hashtag tự do và kết nối cùng hàng ngàn chủ nuôi yêu động vật trong cùng khu đô thị.',
+    title: 'Bảng Tin Khoảnh Khắc & Cộng Đồng Chủ Nuôi',
+    description: 'Bảng tin chia sẻ hình ảnh, video hằng ngày của Boss (chuẩn phong cách Facebook & Instagram). Thả tim, bình luận, gắn hashtag tự do và kết nối cùng hàng ngàn chủ nuôi yêu động vật trong khu vực quanh bạn.',
     highlight: 'Chia sẻ khoảnh khắc & Giao lưu cộng đồng',
     iconName: 'Users',
     colorScheme: 'coral',
@@ -71,9 +78,9 @@ export const CORE_FEATURES: FeatureItem[] = [
   {
     id: 'pawty-dating',
     badge: 'CORE 2: HẸN HÒ PHONG CÁCH FB DATING',
-    title: 'Pawty Dating — Ghép Đôi & Hẹn Dạo Riêng Tư',
-    description: 'Không gian hẹn dạo chuyên biệt cho Boss & Sen (tương tự Facebook Dating). Khám phá danh sách hồ sơ lân cận trong bán kính 3km, gửi lời mời dắt dạo, tự động đề xuất 3 điểm hẹn trung tâm an toàn (Pet Cafe, công viên nội khu).',
-    highlight: 'Duyệt hồ sơ chi tiết & Hẹn dạo trung điểm',
+    title: 'Pawty Dating — Thẻ 2 Mặt Kết Nối Sen & Boss',
+    description: 'Không gian hẹn dạo độc đáo kết nối trực tiếp những người nuôi thú cưng. Thẻ 2 mặt sáng tạo: xem thông tin chủ nuôi ở mặt trước, lật thẻ xem thông tin Boss ở mặt sau. Gửi lời mời dắt dạo và tự động đề xuất điểm hẹn an toàn.',
+    highlight: 'Thẻ 2 mặt Sen & Boss • Hẹn dạo trung điểm',
     iconName: 'HeartHandshake',
     colorScheme: 'warning',
   },
@@ -81,7 +88,7 @@ export const CORE_FEATURES: FeatureItem[] = [
     id: 'sos-network',
     badge: 'CORE 3: BÁO ĐỘNG SOS THÚ LẠC 3KM',
     title: 'Cứu Hộ Thất Lạc Khẩn Cấp Bán Kính 3km',
-    description: 'Khi Boss không may đi lạc, chủ nuôi phát tín hiệu báo động khẩn cấp tới toàn bộ cư dân trong bán kính 3km kèm ảnh, vị trí cuối nhìn thấy và tiền hậu tạ. Cư dân báo manh mối thời gian thực để đón bé về an toàn.',
+    description: 'Khi Boss không may đi lạc, chủ nuôi phát tín hiệu báo động khẩn cấp tới toàn bộ cộng đồng trong bán kính 3km kèm ảnh, vị trí cuối nhìn thấy và tiền hậu tạ. Người xung quanh báo manh mối thời gian thực để đón bé về an toàn.',
     highlight: 'Mạng lưới cứu hộ 3km & Manh mối tức thì',
     iconName: 'AlertTriangle',
     colorScheme: 'danger',
@@ -89,86 +96,153 @@ export const CORE_FEATURES: FeatureItem[] = [
   {
     id: 'safe-passport',
     badge: 'CORE 4: PET FAMILY PASSPORT',
-    title: 'Hồ Sơ Boss Chuẩn Quốc Tế & Sổ Tiêm Safe Pet',
-    description: 'Hồ sơ thú cưng thiết kế dạng thẻ ngang cho từng bé. Quản lý sổ tiêm chủng 7 bệnh, phòng dại, tẩy giun điện tử. Minh bạch thói quen tốt/xấu triệt tiêu 100% nguy cơ cắn nhau ngoài công viên.',
-    highlight: 'Huy hiệu Safe Pet & Minh bạch hành vi',
+    title: 'Hồ Sơ Thú Cưng & Khai Báo Tiêm Phòng',
+    description: 'Hồ sơ thú cưng thiết kế dạng thẻ thông minh. Chủ nuôi tự tích chọn trạng thái tiêm phòng, chia sẻ thói quen tốt và lưu ý khi đi dạo để các bên an tâm trao đổi trước khi hẹn gặp ngoài đời.',
+    highlight: 'Tự khai báo tiêm phòng & Thói quen dắt dạo',
     iconName: 'ShieldCheck',
     colorScheme: 'mint',
   },
 ];
 
-export const MOCK_PETS: PetCardMock[] = [
+export const MOCK_DATING_PROFILES: DatingProfileMock[] = [
   {
-    id: 'pet-1',
-    name: 'Mochi',
-    species: 'Chó',
-    breed: 'Corgi Pembroke',
-    age: '1.5 tuổi',
-    distance: 'Cách bạn 280m',
-    apartment: 'Vinhomes Central Park - Park 3',
-    avatar: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=600&q=80',
-    isVaccinated: true,
-    goodHabits: ['Biết đi vệ sinh đúng khay', 'Thích hòa đồng với cún nhỏ', 'Được tiêm 7 bệnh & dại đầy đủ'],
-    watchOutHabits: ['Hơi sợ tiếng còi xe lớn', 'Hay tranh đồ chơi bóng tennis'],
-    personality: ['Năng động', 'Lăng xăng', 'Thèm ăn'],
-  },
-  {
-    id: 'pet-2',
+    id: 'profile-1',
     name: 'Bơ Béo',
     species: 'Chó',
     breed: 'Golden Retriever',
     age: '2 tuổi',
     distance: 'Cách bạn 450m',
-    apartment: 'Landmark 4 - Vinhomes Grand Park',
+    apartment: 'Quận Bình Thạnh, TP.HCM',
     avatar: 'https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=600&q=80',
     isVaccinated: true,
+    personality: ['Ấm áp', 'Kiên nhẫn', 'Thích bơi'],
     goodHabits: ['Cực kỳ yêu thương trẻ em', 'Biết bắt tay và ngồi chờ hiệu lệnh', 'Không bao giờ sủa vô cớ'],
     watchOutHabits: ['Thích nhảy xuống hồ bơi công viên'],
-    personality: ['Ấm áp', 'Kiên nhẫn', 'Thích bơi'],
+
+    ownerName: 'Lê Minh Tuấn',
+    ownerAge: 26,
+    ownerAvatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80',
+    ownerJob: 'Kỹ sư phần mềm',
+    ownerBio: 'Làm việc remote nên rảnh rỗi chiều tối hay dắt Golden đi dạo xả stress. Mong kết nối các bạn nuôi pet cùng gu để cún có bạn chạy nhảy và giao lưu cafe!',
+    ownerArea: 'P.25, Quận Bình Thạnh, TP.HCM',
+    connectionGoal: 'Tìm bạn dắt cún dạo chiều & cafe',
+    ownerTags: ['YêuCún', 'ThíchBơi', 'CafeCuốiTuần'],
+
+    petName: 'Bơ Béo',
+    petAge: '2 tuổi',
+    petAvatar: 'https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=600&q=80',
   },
   {
-    id: 'pet-3',
+    id: 'profile-2',
+    name: 'Mochi',
+    species: 'Chó',
+    breed: 'Corgi Pembroke',
+    age: '1.5 tuổi',
+    distance: 'Cách bạn 280m',
+    apartment: 'TP. Thủ Đức, TP.HCM',
+    avatar: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=600&q=80',
+    isVaccinated: true,
+    personality: ['Năng động', 'Lăng xăng', 'Thèm ăn'],
+    goodHabits: ['Biết đi vệ sinh đúng khay', 'Thích hòa đồng với cún nhỏ', 'Đã tiêm phòng vắc-xin'],
+    watchOutHabits: ['Hơi sợ tiếng còi xe lớn', 'Hay tranh đồ chơi bóng tennis'],
+
+    ownerName: 'Hoàng Nam',
+    ownerAge: 27,
+    ownerAvatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
+    ownerJob: 'Nhiếp ảnh gia tự do',
+    ownerBio: 'Mình hay dắt Corgi đi dạo công viên bờ sông tầm 17h - 18h30. Rất thích chụp ảnh cho các bé cún và kết bạn với những bạn yêu động vật!',
+    ownerArea: 'P. Thảo Điền, TP. Thủ Đức',
+    connectionGoal: 'Tìm bạn dắt cún dạo bờ sông',
+    ownerTags: ['NhiếpẢnh', 'YêuCorgi', 'DạoBờSông'],
+
+    petName: 'Mochi',
+    petAge: '1.5 tuổi',
+    petAvatar: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=600&q=80',
+  },
+  {
+    id: 'profile-3',
     name: 'Sâu',
     species: 'Mèo',
     breed: 'Mèo Ba Tư Lông Dài',
     age: '1 tuổi',
     distance: 'Cách bạn 320m',
-    apartment: 'Tòa S1.02 Vinhomes Grand Park',
+    apartment: 'Quận 1, TP.HCM',
     avatar: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=600&q=80',
     isVaccinated: true,
+    personality: ['Điềm tĩnh', 'Mắt hổ phách', 'Thích vuốt ve'],
     goodHabits: ['Đã triệt sản', 'Tiêm phòng đầy đủ', 'Ngoan ngoãn trong túi phi thuyền'],
     watchOutHabits: ['Sợ tiếng chó sủa to'],
-    personality: ['Điềm tĩnh', 'Mắt hổ phách', 'Thích vuốt ve'],
+
+    ownerName: 'Nguyễn Thảo Trang',
+    ownerAge: 24,
+    ownerAvatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80',
+    ownerJob: 'Sáng tạo nội dung (Content Creator)',
+    ownerBio: 'Nuôi một bé mèo Ba Tư điềm đạm. Cuối tuần thường cho bé đi picnic công viên trong balo phi thuyền thoáng mát. Rất vui được kết nối hội Sen nuôi mèo!',
+    ownerArea: 'P. Bến Nghé, Quận 1, TP.HCM',
+    connectionGoal: 'Giao lưu hội Sen nuôi Mèo',
+    ownerTags: ['MêMèo', 'Picnic', 'ChillCuốiTuần'],
+
+    petName: 'Sâu',
+    petAge: '1 tuổi',
+    petAvatar: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=600&q=80',
   },
   {
-    id: 'pet-4',
+    id: 'profile-4',
     name: 'LuLu',
     species: 'Chó',
     breed: 'Poodle Toy',
     age: '2.5 tuổi',
     distance: 'Cách bạn 520m',
-    apartment: 'Masteri Thảo Điền - Tháp T2',
+    apartment: 'Cầu Giấy, Hà Nội',
     avatar: 'https://images.unsplash.com/photo-1534361960057-19889db9621e?auto=format&fit=crop&w=600&q=80',
     isVaccinated: true,
+    personality: ['Thông minh', 'Quấn chủ', 'Duyên dáng'],
     goodHabits: ['Được tỉa lông gấu bông định kỳ', 'Thích kết bạn đi dạo 17h', 'Không kén ăn'],
     watchOutHabits: ['Đôi khi nhảy lên người mừng rỡ'],
-    personality: ['Thông minh', 'Quấn chủ', 'Duyên dáng'],
+
+    ownerName: 'Vũ Hoàng My',
+    ownerAge: 25,
+    ownerAvatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80',
+    ownerJob: 'Chuyên viên Marketing',
+    ownerBio: 'Poodle nhà mình rất thân thiện và thích kết bạn. Tìm bạn dắt dạo cùng quanh công viên vào các buổi tối sau giờ tan làm!',
+    ownerArea: 'P. Dịch Vọng, Cầu Giấy, Hà Nội',
+    connectionGoal: 'Tìm bạn dắt dạo buổi tối 19h',
+    ownerTags: ['DạoTối', 'YêuThương', 'CúnNhỏ'],
+
+    petName: 'LuLu',
+    petAge: '2.5 tuổi',
+    petAvatar: 'https://images.unsplash.com/photo-1534361960057-19889db9621e?auto=format&fit=crop&w=600&q=80',
   },
   {
-    id: 'pet-5',
+    id: 'profile-5',
     name: 'Bánh Mì',
     species: 'Mèo',
     breed: 'Mèo Anh Lông Ngắn',
     age: '1.2 tuổi',
     distance: 'Cách bạn 600m',
-    apartment: 'Park 6 - Chung cư Masteri',
+    apartment: 'Quận 7, TP.HCM',
     avatar: 'https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=600&q=80',
     isVaccinated: true,
-    goodHabits: ['Thích nằm tắm nắng ban công', 'Ăn hạt pate đúng giờ', 'Sổ tiêm đầy đủ'],
-    watchOutHabits: ['Không thích người lạ bế đột ngột'],
     personality: ['Chảnh mèo', 'Thích phơi nắng', 'Đáng yêu'],
+    goodHabits: ['Thích nằm tắm nắng ban công', 'Ăn hạt pate đúng giờ', 'Đã tiêm phòng'],
+    watchOutHabits: ['Không thích người lạ bế đột ngột'],
+
+    ownerName: 'Trần Đăng Khoa',
+    ownerAge: 28,
+    ownerAvatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80',
+    ownerJob: 'Kiến trúc sư',
+    ownerBio: 'Sen của một bé Mèo Anh lông ngắn đáng yêu. Rất thích chia sẻ kinh nghiệm chăm sóc pet và hay ghé các quán cafe thú cưng vào cuối tuần.',
+    ownerArea: 'P. Tân Phong, Quận 7, TP.HCM',
+    connectionGoal: 'Kết bạn giao lưu kinh nghiệm nuôi thú cưng',
+    ownerTags: ['KiếnTrúc', 'MèoAnh', 'DinhDưỡngPet'],
+
+    petName: 'Bánh Mì',
+    petAge: '1.2 tuổi',
+    petAvatar: 'https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=600&q=80',
   },
 ];
+
+export const MOCK_PETS = MOCK_DATING_PROFILES;
 
 export const TESTIMONIALS: TestimonialItem[] = [
   {
@@ -176,9 +250,9 @@ export const TESTIMONIALS: TestimonialItem[] = [
     ownerName: 'Lê Minh Tuấn & Cún LuLu',
     petName: 'Poodle LuLu',
     petType: 'Poodle',
-    apartment: 'Cư dân Park 5, Vinhomes Central Park',
+    apartment: 'Quận Bình Thạnh, TP.HCM',
     avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
-    quote: 'Mô hình vừa có Bảng tin lướt ảnh như Facebook, vừa có mục Pawty Dating tìm bạn dắt cún như FB Dating quá tiện lợi! Mình tìm được 3 bạn Poodle cùng tòa dắt chung mỗi 6h chiều cực kỳ vui và an tâm.',
+    quote: 'Mô hình vừa có Bảng tin khoảnh khắc giao lưu, vừa có mục Pawty Dating tìm bạn dắt cún quá tiện lợi! Mình tìm được các bạn nuôi cún gần nhà cùng dắt mỗi chiều cực kỳ vui vẻ.',
     rating: 5,
   },
   {
@@ -186,9 +260,9 @@ export const TESTIMONIALS: TestimonialItem[] = [
     ownerName: 'Nguyễn Thảo Trang',
     petName: 'Mèo Sâu & Simba',
     petType: 'Mèo Ba Tư & Ragdoll',
-    apartment: 'Masteri An Phú, TP. Thủ Đức',
+    apartment: 'TP. Thủ Đức, TP.HCM',
     avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=200&q=80',
-    quote: 'Tính năng Báo tin SOS tìm thú lạc trong chung cư cực kỳ hữu ích! Bé Mèo nhà mình chạy lạc ra cầu thang, vừa đăng tin là hàng xóm cùng tầng báo ngay vị trí để đón bé về an toàn trong 20 phút.',
+    quote: 'Tính năng Báo tin SOS tìm thú lạc trong khu vực cực kỳ hữu ích! Bé Mèo nhà mình chạy lạc ra ngõ, vừa đăng tin là hàng xóm xung quanh báo ngay vị trí để đón bé về an toàn trong 20 phút.',
     rating: 5,
   },
   {
@@ -196,32 +270,32 @@ export const TESTIMONIALS: TestimonialItem[] = [
     ownerName: 'Trần Đăng Khoa',
     petName: 'Corgi Bắp',
     petType: 'Corgi',
-    apartment: 'Sala Sarina, TP. Thủ Đức',
+    apartment: 'Quận 7, TP.HCM',
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80',
-    quote: 'Thích nhất là ứng dụng hoàn toàn miễn phí trọn đời cho cư dân, không bị giới hạn tính năng hay bắt mua gói cước. Giao diện xinh xắn, tìm bạn dắt dạo cùng tòa nhà cực kỳ nhanh và an tâm!',
+    quote: 'Thích nhất là ứng dụng hoàn toàn miễn phí trọn đời cho cộng đồng, không bị giới hạn tính năng hay bắt mua gói cước. Thẻ lật 2 mặt xem được cả thông tin chủ lẫn thông tin thú cưng rất thông minh!',
     rating: 5,
   },
 ];
 
 export const FAQ_LIST: FaqItem[] = [
   {
-    question: 'Pawty hoạt động như thế nào? Có giống Facebook và Facebook Dating không?',
-    answer: 'Chính xác! Pawty kết hợp 2 phân hệ hoàn hảo: 1) Mạng xã hội thú cưng (chuẩn Facebook/Instagram) để đăng ảnh/video khoảnh khắc, thả tim, bình luận và theo dõi bạn bè; 2) Không gian Pawty Dating (chuẩn Facebook Dating) chuyên biệt để tìm bạn dắt dạo, gửi lời mời kết nối, hẹn dạo trung điểm (Pet Cafe/Công viên) và bảo mật tuyệt đối.',
+    question: 'Pawty hoạt động như thế nào? Thẻ hẹn dạo 2 mặt Sen & Boss là gì?',
+    answer: 'Pawty là ứng dụng kết nối trực tiếp những người nuôi thú cưng (Pet Owners). Trong không gian Pawty Dating, mỗi hồ sơ được thiết kế dạng thẻ lật 2 mặt độc đáo: Mặt trước là hình ảnh và thông tin của Chủ nuôi (Sen); khi bạn chạm nhẹ vào thẻ, thẻ sẽ xoay lại và hiển thị đầy đủ hình ảnh, giống loài, tính cách của bé Boss cưng. Bạn có thể dễ dàng gửi lời mời dắt dạo để cùng hẹn gặp giao lưu.',
     category: 'Mô Hình Hoạt Động',
   },
   {
     question: 'Ứng dụng có thu phí người dùng không? Có các gói cước VIP không?',
-    answer: 'Không! Pawty là siêu ứng dụng phục vụ cộng đồng và hoàn toàn MIỄN PHÍ TRỌN ĐỜI cho mọi cư dân. Bạn được sử dụng 100% tính năng: Mạng xã hội, Pawty Dating, Sổ tiêm điện tử Safe Pet mà không phải trả bất kỳ khoản phí duy trì hay gói cước nào.',
+    answer: 'Không! Pawty là siêu ứng dụng phục vụ cộng đồng và hoàn toàn MIỄN PHÍ TRỌN ĐỜI cho mọi chủ nuôi. Bạn được sử dụng 100% tính năng: Mạng xã hội khoảnh khắc, Pawty Dating kết nối bạn dắt dạo, Sổ ghi chép thú cưng mà không phải trả bất kỳ khoản phí nào.',
     category: 'Chi Phí Sử Dụng',
   },
   {
     question: 'Tính năng Báo tin SOS tìm Boss lạc hoạt động như thế nào?',
-    answer: 'Khi Boss bị thất lạc, bạn tạo tin báo động SOS với ảnh chụp, đặc điểm nhận dạng, vị trí cuối nhìn thấy và mức tiền hậu tạ. Tin báo lập tức phát sóng tới cộng đồng cư dân trong bán kính 3km. Bất kỳ ai nhìn thấy bé đều có thể gửi manh mối vị trí kèm hình ảnh hoặc liên hệ trực tiếp với bạn để đón bé về an toàn.',
+    answer: 'Khi Boss bị thất lạc, bạn tạo tin báo động SOS với ảnh chụp, đặc điểm nhận dạng, vị trí cuối nhìn thấy và tiền hậu tạ. Tin báo lập tức phát sóng tới cộng đồng trong bán kính 3km. Bất kỳ ai nhìn thấy bé đều có thể gửi manh mối vị trí kèm hình ảnh hoặc liên hệ trực tiếp với bạn để đón bé về an toàn.',
     category: 'Cứu Hộ SOS Khẩn Cấp',
   },
   {
-    question: 'Pawty bảo vệ an toàn cho thú cưng và quyền riêng tư cư dân như thế nào?',
-    answer: 'Pawty tuân thủ nghiêm ngặt Luật Bảo vệ Dữ liệu Cá nhân số 91/2025/QH15: Không bao giờ hiển thị số phòng hay số tầng căn hộ, chỉ hiển thị tên cụm chung cư và khoảng cách tương đối (ví dụ: "Cách bạn 280m"). Về an toàn thú cưng, Pawty bắt buộc kiểm chứng Sổ tiêm chủng 7 bệnh & dại (Huy hiệu Safe Pet) và minh bạch thói quen để triệt tiêu nguy cơ cắn nhau.',
-    category: 'An Toàn & Bảo Mật',
+    question: 'Vấn đề tiêm chủng và an toàn khi hẹn dắt dạo được quản lý ra sao?',
+    answer: 'Pawty tôn trọng tính tự nguyện và chủ động của cộng đồng: Chủ nuôi tự tích chọn xác nhận tình trạng đã tiêm phòng vắc-xin cho thú cưng và công khai thói quen dắt dạo (thói quen tốt, điểm cần lưu ý). Hai bên chủ nuôi có thể nhắn tin trao đổi kỹ lưỡng trước khi quyết định cùng dắt dạo ngoài đời.',
+    category: 'An Toàn & Tiêm Chủng',
   },
 ];
