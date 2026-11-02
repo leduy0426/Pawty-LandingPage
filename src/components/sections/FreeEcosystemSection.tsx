@@ -58,7 +58,7 @@ export const FreeEcosystemSection: React.FC<FreeEcosystemProps> = ({ onDownloadC
                 {[
                   'Bảng tin khoảnh khắc chuẩn Facebook / Instagram',
                   'Không gian Pawty Dating tìm bạn dắt dạo không giới hạn',
-                  'Sổ tiêm điện tử 7 bệnh & phòng dại chuẩn Safe Pet',
+                  'Hồ sơ thú cưng tự khai báo tiêm phòng minh bạch',
                   'Chat riêng tư & tự động đề xuất 3 trung điểm dắt dạo',
                   'Bảo mật dữ liệu cá nhân theo Luật 91/2025/QH15',
                 ].map((item, idx) => (
@@ -79,7 +79,7 @@ export const FreeEcosystemSection: React.FC<FreeEcosystemProps> = ({ onDownloadC
             </button>
           </motion.div>
 
-          {/* Card 2: Emergency SOS Community Alert */}
+          {/* Card 2: Lost Pet Community Bulletin */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -90,29 +90,28 @@ export const FreeEcosystemSection: React.FC<FreeEcosystemProps> = ({ onDownloadC
             <div className="space-y-6">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold uppercase tracking-wider text-coral px-3 py-1 rounded-full bg-coral-50 border border-coral/30">
-                  Cứu Hộ Khẩn Cấp
+                  Bảng Tin Tìm Boss
                 </span>
                 <span className="text-xs font-bold text-coral flex items-center gap-1">
-                  <Sparkles className="w-3.5 h-3.5" /> Bán kính 3km
+                  <Sparkles className="w-3.5 h-3.5" /> Hỗ Trợ Cộng Đồng
                 </span>
               </div>
 
               <div>
                 <h3 className="font-display font-bold text-2xl text-charcoal">
-                  Báo Động Tìm Boss Lạc &amp; Mạng Lưới Cứu Hộ 3km
+                  Bảng Tin Đăng Bài Tìm Boss Lạc
                 </h3>
                 <p className="text-sm text-charcoal-light mt-2 leading-relaxed">
-                  Mạng lưới cư dân đô thị tương trợ khẩn cấp trong bán kính 3km giúp chủ nuôi nhanh chóng tìm lại Boss khi không may thất lạc.
+                  Không gian bảng tin cộng đồng hỗ trợ người nuôi đăng bài tìm kiếm Boss thất lạc và tiếp nhận manh mối từ người dân xung quanh.
                 </p>
               </div>
 
               <ul className="space-y-3.5 border-t border-gray-100 pt-6">
                 {[
-                  'Báo động tìm Boss lạc khẩn cấp phủ sóng bán kính 3km',
-                  'Đăng tin tìm kiếm kèm ảnh chụp, vị trí nhìn thấy và tiền hậu tạ',
-                  'Cư dân cập nhật manh mối vị trí nhìn thấy theo thời gian thực',
-                  'Kết nối trực tiếp chủ nuôi với người vừa nhìn thấy bé',
-                  '100% miễn phí — chung tay vì sự an toàn của thú cưng',
+                  'Đăng bài tìm Boss kèm ảnh nhận dạng, vị trí nhìn thấy và liên hệ',
+                  'Cộng đồng xung quanh cập nhật manh mối khi nhìn thấy bé',
+                  'Kết nối trực tiếp chủ nuôi với người phát hiện manh mối',
+                  '100% miễn phí — chung tay hỗ trợ cộng đồng yêu thú cưng',
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-center gap-3 text-xs sm:text-sm text-charcoal">
                     <Sparkles className="w-4 h-4 text-coral shrink-0" />

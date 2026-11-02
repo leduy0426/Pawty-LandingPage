@@ -79,14 +79,6 @@ export const InteractiveRadarSection: React.FC = () => {
           <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-charcoal leading-tight">
             Khám phá &amp; kết nối những người nuôi pet quanh bạn
           </h2>
-          <p className="text-base sm:text-lg text-charcoal-light">
-            Thẻ hẹn dạo 2 mặt độc đáo: <span className="font-bold text-charcoal">Mặt trước là thông tin Chủ nuôi (Sen)</span>, chạm vào thẻ để <span className="text-coral font-bold">lật sang xem Boss</span>. Dùng 2 nút mũi tên <span className="font-bold">(&lt; &gt;)</span> để duyệt qua tất cả thú cưng của người đó!
-          </p>
-
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-mint/20 border border-mint-dark/30 text-emerald-800 text-xs font-bold">
-            <RotateCw className="w-3.5 h-3.5 text-emerald-700" />
-            <span>Chạm vào thẻ để lật 👤 Sen &amp; 🐾 Boss • Bấm mũi tên để xem tất cả {ownerPets.length} bé cưng của chủ này</span>
-          </div>
         </div>
 
         {/* 2-Sided Interactive Flip Card Arena */}

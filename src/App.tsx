@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Navbar } from './components/layout/Navbar';
 import { HeroSection } from './components/sections/HeroSection';
-import { TrustStatsSection } from './components/sections/TrustStatsSection';
 import { FeaturesBentoSection } from './components/sections/FeaturesBentoSection';
 import { InteractiveRadarSection } from './components/sections/InteractiveRadarSection';
 import { FreeEcosystemSection } from './components/sections/FreeEcosystemSection';
@@ -10,7 +9,6 @@ import { FaqSection } from './components/sections/FaqSection';
 import { DownloadCtaSection } from './components/sections/DownloadCtaSection';
 import { Footer } from './components/layout/Footer';
 import { LegalModal, LegalDocType } from './components/legal/LegalModal';
-import { Sparkles } from 'lucide-react';
 
 export const App: React.FC = () => {
   const [activeLegalDoc, setActiveLegalDoc] = useState<LegalDocType>(null);
@@ -25,19 +23,7 @@ export const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-cream text-charcoal flex flex-col font-body selection:bg-coral-100 selection:text-coral-dark">
       
-      {/* Top Announcement Bar */}
-      <div className="bg-gradient-to-r from-coral via-coral-light to-mint-dark text-white text-xs sm:text-sm py-2 px-4 text-center font-bold flex items-center justify-center gap-2 shadow-sm">
-        <Sparkles className="w-4 h-4 text-white animate-bounce" />
-        <span>🐾 Chào mừng bạn đến với Pawty — Ứng dụng cộng đồng miễn phí 100% kết nối những người nuôi thú cưng đô thị!</span>
-        <button
-          onClick={() => scrollToSection('download')}
-          className="underline decoration-white/70 hover:decoration-white ml-1 text-white hidden sm:inline cursor-pointer"
-        >
-          Tham gia ngay →
-        </button>
-      </div>
-
-      {/* Sticky Navigation */}
+      {/* Sticky / Fixed Navigation with embedded Announcement Bar */}
       <Navbar
         onOpenDemo={() => scrollToSection('dating')}
         onNavigateSection={scrollToSection}
@@ -49,7 +35,6 @@ export const App: React.FC = () => {
           onExploreRadar={() => scrollToSection('dating')}
           onDownloadClick={() => scrollToSection('download')}
         />
-        <TrustStatsSection />
         <FeaturesBentoSection onLearnMore={() => scrollToSection('dating')} />
         <InteractiveRadarSection />
         <FreeEcosystemSection onDownloadClick={() => scrollToSection('download')} />

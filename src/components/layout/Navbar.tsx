@@ -9,6 +9,7 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo, onNavigateSection }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showAnnouncement, setShowAnnouncement] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,15 +28,40 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo, onNavigateSection })
   ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-card py-3 border-b border-coral/10 text-charcoal'
-          : 'bg-gradient-to-b from-black/40 via-black/10 to-transparent py-4 sm:py-5 text-white'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+      {/* Top Announcement Bar - Stacked cleanly above Nav, ZERO overlap */}
+      {showAnnouncement && (
+        <div className="bg-gradient-to-r from-coral via-coral-light to-mint-dark text-white text-xs sm:text-sm py-1.5 px-4 text-center font-bold flex items-center justify-center gap-2 shadow-sm relative">
+          <Sparkles className="w-3.5 h-3.5 text-white animate-bounce shrink-0" />
+          <span className="truncate max-w-[85vw] sm:max-w-none">
+            🐾 Chào mừng bạn đến với Pawty — Ứng dụng cộng đồng kết nối những người nuôi thú cưng!
+          </span>
+          <button
+            onClick={() => onNavigateSection('download')}
+            className="underline decoration-white/70 hover:decoration-white ml-1 text-white hidden md:inline cursor-pointer"
+          >
+            Tham gia ngay →
+          </button>
+          <button
+            onClick={() => setShowAnnouncement(false)}
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-white/80 hover:text-white p-0.5 rounded cursor-pointer"
+            aria-label="Đóng thông báo"
+          >
+            <X className="w-3.5 h-3.5" />
+          </button>
+        </div>
+      )}
+
+      {/* Main Nav Bar */}
+      <div
+        className={`${
+          isScrolled
+            ? 'bg-white/95 backdrop-blur-md shadow-card py-3 border-b border-coral/10 text-charcoal'
+            : 'bg-gradient-to-b from-black/40 via-black/10 to-transparent py-3.5 sm:py-4 text-white'
+        } transition-all duration-300`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between">
           
           {/* ========================================================
               LOGO (Matching VNHUB Logo + Subtext format)
@@ -143,6 +169,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo, onNavigateSection })
 
         </div>
       </div>
+    </div>
 
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (

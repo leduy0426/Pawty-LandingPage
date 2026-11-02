@@ -101,13 +101,13 @@ export const CORE_FEATURES: FeatureItem[] = [
     colorScheme: 'warning',
   },
   {
-    id: 'sos-network',
-    badge: 'CORE 3: BÁO ĐỘNG SOS THÚ LẠC 3KM',
-    title: 'Cứu Hộ Thất Lạc Khẩn Cấp Bán Kính 3km',
-    description: 'Khi Boss không may đi lạc, chủ nuôi phát tín hiệu báo động khẩn cấp tới toàn bộ cộng đồng trong bán kính 3km kèm ảnh, vị trí cuối nhìn thấy và tiền hậu tạ. Người xung quanh báo manh mối thời gian thực để đón bé về an toàn.',
-    highlight: 'Mạng lưới cứu hộ 3km & Manh mối tức thì',
-    iconName: 'AlertTriangle',
-    colorScheme: 'danger',
+    id: 'lost-pet-bulletin',
+    badge: 'CORE 3: BẢNG TIN TÌM BOSS LẠC',
+    title: 'Đăng Bài Tìm Boss Thất Lạc Quanh Bạn',
+    description: 'Khi Boss không may đi lạc, người nuôi có thể nhanh chóng đăng bài tìm kiếm lên bảng tin với hình ảnh nhận dạng, vị trí nhìn thấy gần nhất và thông tin liên hệ. Mọi người trong khu vực có thể theo dõi và phản hồi manh mối để hỗ trợ đón bé về.',
+    highlight: 'Đăng bài tìm Boss & Cung cấp manh mối nhanh chóng',
+    iconName: 'Compass',
+    colorScheme: 'coral',
   },
   {
     id: 'safe-passport',
@@ -418,7 +418,7 @@ export const TESTIMONIALS: TestimonialItem[] = [
     petType: 'Mèo Ba Tư & Ragdoll',
     apartment: 'TP. Thủ Đức, TP.HCM',
     avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=200&q=80',
-    quote: 'Tính năng Báo tin SOS tìm thú lạc trong khu vực cực kỳ hữu ích! Bé Mèo nhà mình chạy lạc ra ngõ, vừa đăng tin là hàng xóm xung quanh báo ngay vị trí để đón bé về an toàn trong 20 phút.',
+    quote: 'Tính năng Đăng tin tìm thú lạc trong khu vực cực kỳ hữu ích! Bé Mèo nhà mình chạy lạc ra ngõ, vừa đăng bài là hàng xóm xung quanh báo ngay manh mối để đón bé về an toàn trong 20 phút.',
     rating: 5,
   },
   {
@@ -445,9 +445,9 @@ export const FAQ_LIST: FaqItem[] = [
     category: 'Chi Phí Sử Dụng',
   },
   {
-    question: 'Tính năng Báo tin SOS tìm Boss lạc hoạt động như thế nào?',
-    answer: 'Khi Boss bị thất lạc, bạn tạo tin báo động SOS với ảnh chụp, đặc điểm nhận dạng, vị trí cuối nhìn thấy và tiền hậu tạ. Tin báo lập tức phát sóng tới cộng đồng trong bán kính 3km. Bất kỳ ai nhìn thấy bé đều có thể gửi manh mối vị trí kèm hình ảnh hoặc liên hệ trực tiếp với bạn để đón bé về an toàn.',
-    category: 'Cứu Hộ SOS Khẩn Cấp',
+    question: 'Làm thế nào để đăng bài tìm thú cưng khi Boss đi lạc?',
+    answer: 'Khi Boss không may bị thất lạc, bạn có thể tạo bài đăng tìm kiếm trên bảng tin với hình ảnh rõ nét, đặc điểm nhận dạng, khu vực nhìn thấy gần nhất và thông tin liên hệ. Cộng đồng người nuôi thú cưng xung quanh có thể theo dõi, chia sẻ manh mối vị trí và hỗ trợ bạn sớm tìm lại bé.',
+    category: 'Bảng Tin Tìm Boss',
   },
   {
     question: 'Vấn đề tiêm chủng và an toàn khi hẹn dắt dạo được quản lý ra sao?',

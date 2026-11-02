@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Sparkles, ArrowRight, HeartHandshake, AlertTriangle } from 'lucide-react';
+import { Sparkles, ArrowRight, HeartHandshake } from 'lucide-react';
 import { HeroTiltedCardsMosaic } from '../hero/HeroTiltedCardsMosaic';
 import { HeroTriplePhones } from '../hero/HeroTriplePhones';
 
@@ -91,7 +91,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreRadar, onDown
               transition={{ duration: 0.7, delay: 0.45 }}
               className="text-sm sm:text-base md:text-lg text-white/90 font-body leading-relaxed max-w-xl text-left font-normal"
             >
-              Pawty là siêu ứng dụng kết nối cộng đồng những người nuôi thú cưng đô thị, kết hợp hoàn hảo giữa <strong className="text-white font-bold">Mạng Xã Hội khoảnh khắc</strong> và không gian <strong className="text-mint font-bold">Pawty Dating</strong> với thẻ lật 2 mặt Sen &amp; Boss độc đáo. Cùng tính năng <strong className="text-white font-bold">Báo động SOS 3km</strong> tìm Boss lạc và hồ sơ thú cưng tự khai báo tiêm phòng minh bạch.
+              Pawty là siêu ứng dụng kết nối cộng đồng những người nuôi thú cưng, kết hợp hoàn hảo giữa <strong className="text-white font-bold">Mạng Xã Hội khoảnh khắc</strong> và không gian <strong className="text-mint font-bold">Pawty Dating</strong> với thẻ lật 2 mặt Sen &amp; Boss độc đáo, dễ dàng tìm bạn dắt dạo cùng sở thích.
             </motion.p>
 
             {/* Store Badges & Call to Actions */}
@@ -124,19 +124,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreRadar, onDown
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.7, delay: 0.75 }}
-              className="pt-4 border-t border-white/15 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs sm:text-sm text-white/80 font-medium"
+              className="pt-4 border-t border-white/15 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs sm:text-sm text-white/90 font-medium"
             >
-              <div className="flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-mint" />
-                <span>100% Sổ Tiêm Safe Pet</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <AlertTriangle className="w-4 h-4 text-rose-300" />
-                <span>Báo Động SOS 3km</span>
-              </div>
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
                 <HeartHandshake className="w-4 h-4 text-amber-300" />
-                <span>Hẹn dạo chuẩn FB Dating</span>
+                <span className="font-bold">Hẹn hò dắt dạo</span>
               </div>
             </motion.div>
 
