@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { AnimatePresence, motion, useReducedMotion, type Variants } from 'framer-motion';
-import { Bell, ChevronDown, Compass, MapPin, MessageCircle, Radar, UserRound, type LucideIcon } from 'lucide-react';
+import { Bell, ChevronDown, Compass, Heart, MapPin, MessageCircle, UserRound, type LucideIcon } from 'lucide-react';
 import { MOCK_PETS, type PetCardMock } from '../../data/landingData';
 import { usePetDeck, type SwipeDirection } from '../../hooks/usePetDeck';
 import { PhoneFrame } from './PhoneFrame';
@@ -20,7 +20,7 @@ const ACTION_MESSAGES: Record<SwipeDirection, (name: string) => string> = {
 };
 
 const TABS: { label: string; icon: LucideIcon; isActive?: boolean }[] = [
-  { label: 'Radar', icon: Radar, isActive: true },
+  { label: 'Dating', icon: Heart, isActive: true },
   { label: 'Khám phá', icon: Compass },
   { label: 'Tin nhắn', icon: MessageCircle },
   { label: 'Hồ sơ', icon: UserRound },

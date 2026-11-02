@@ -7,7 +7,7 @@ export const SafetyPillarSection: React.FC = () => {
     {
       icon: FileCheck2,
       title: 'Xác Thực Sổ Tiêm Safe Pet',
-      description: 'Chỉ các Boss có đầy đủ thông tin sổ tiêm phòng (7 bệnh & phòng dại) mới được cấp tick xanh kiểm chứng trên Radar an toàn.',
+      description: 'Chỉ các Boss có đầy đủ thông tin sổ tiêm phòng (7 bệnh & phòng dại) mới được cấp tick xanh kiểm chứng trên danh sách Pawty Dating.',
       color: 'text-mint-dark',
       bg: 'bg-mint-50',
     },
@@ -21,7 +21,7 @@ export const SafetyPillarSection: React.FC = () => {
     {
       icon: UserX,
       title: 'Chế Tài Bùng Hẹn (Anti-Flake)',
-      description: 'Báo cáo không đến điểm hẹn 2 lần/tuần sẽ bị hệ thống tự động khóa quyền quẹt thẻ 3 ngày. Giữ gìn văn hóa hẹn dạo đúng giờ và văn minh.',
+      description: 'Báo cáo không đến điểm hẹn 2 lần/tuần sẽ bị hệ thống tự động tạm khóa tính năng hẹn dạo 3 ngày. Giữ gìn văn hóa hẹn dạo đúng giờ và văn minh.',
       color: 'text-amber-600',
       bg: 'bg-amber-50',
     },

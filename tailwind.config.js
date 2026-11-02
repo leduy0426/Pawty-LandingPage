@@ -38,9 +38,10 @@ export default {
         danger: '#E17055',
       },
       fontFamily: {
-        display: ['Fredoka', 'sans-serif'],
-        body: ['Nunito', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        display: ['"Fredoka"', '"Quicksand"', 'cursive', 'sans-serif'],
+        body: ['"Quicksand"', '"Nunito"', 'sans-serif'],
+        cute: ['"Fredoka"', '"Quicksand"', 'cursive', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'monospace'],
       },
       borderRadius: {
         '3xl': '24px',

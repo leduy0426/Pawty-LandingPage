@@ -13,7 +13,7 @@
   - `Mint`: `#A3E4D7` (Xanh Mint - Safe Pet, Sổ tiêm)
   - `Cream`: `#FDFBF7` (Trắng Kem - Nền tảng êm dịu)
   - `Charcoal`: `#2D3436` (Xám Than - Chữ & Đầu đề)
-- **Typography:** `Fredoka` (Display/Tiêu đề) + `Nunito` (Nội dung)
+- **Typography:** `Fredoka` & `Quicksand` (Cute Display/Tiêu đề bo tròn) + `Quicksand` & `Nunito` (Nội dung)
 - **Icons:** `lucide-react`
 - **Animation:** `framer-motion`
 - **Hosting / Deployment:** [Vercel](https://vercel.com/) (Tối ưu SPA Routing qua `vercel.json`)

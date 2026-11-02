@@ -21,7 +21,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ activeDoc, onClose }) =>
           content: (
             <div className="space-y-4 text-sm text-charcoal-light leading-relaxed">
               <p>
-                <strong>1. Thu thập dữ liệu vị trí:</strong> Pawty chỉ thu thập tọa độ địa lý nhằm mục đích tính toán khoảng cách tương đối (ví dụ: "Cách bạn 280m") để gợi ý bạn dắt dạo trên Radar PostGIS. <em>Ứng dụng tuyệt đối không lưu trữ hay công khai số nhà, số tầng hoặc căn hộ chính xác của người dùng.</em>
+                <strong>1. Thu thập dữ liệu vị trí:</strong> Pawty chỉ thu thập tọa độ địa lý nhằm mục đích tính toán khoảng cách tương đối (ví dụ: "Cách bạn 280m") để gợi ý bạn dắt dạo trên tính năng Pawty Dating trong phạm vi gần. <em>Ứng dụng tuyệt đối không lưu trữ hay công khai số nhà, số tầng hoặc căn hộ chính xác của người dùng.</em>
               </p>
               <p>
                 <strong>2. Hồ sơ thú cưng & Sổ tiêm:</strong> Hình ảnh thú cưng, lịch tiêm chủng và các ghi chú hành vi được lưu trữ mã hóa an toàn trên hệ thống. Thông tin sổ tiêm chỉ được hiển thị trạng thái "Đã tiêm đầy đủ" (Huy hiệu Safe Pet) hoặc ngày tiêm tới hạn cho cộng đồng để phục vụ sự an toàn.
@@ -37,7 +37,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ activeDoc, onClose }) =>
         };
       case 'terms':
         return {
-          title: 'Điều Khoản & Điều Kiện Sử Dụng Dịch Vụ',
+          title: 'Điều Khoản & Quy Định Sử Dụng Ứng Dụng',
           icon: FileText,
           content: (
             <div className="space-y-4 text-sm text-charcoal-light leading-relaxed">
@@ -48,10 +48,10 @@ export const LegalModal: React.FC<LegalModalProps> = ({ activeDoc, onClose }) =>
                 <strong>2. Trách nhiệm của chủ nuôi:</strong> Bạn chịu trách nhiệm hoàn toàn về hành vi và tình trạng sức khỏe của thú cưng khi tham gia các buổi hẹn dắt dạo ngoài thực tế. Bạn phải bảo đảm Boss đã được tiêm phòng dại và đeo rọ mõm / dây xích nếu Boss có dấu hiệu kích động.
               </p>
               <p>
-                <strong>3. Gói Sen VIP & Thanh toán:</strong> Gói cước Sen VIP (49.000đ/tháng) và phí phát sóng SOS Tìm Boss Lạc (39.000đ) được thanh toán qua mã VietQR. Sau khi dịch vụ được kích hoạt, các khoản phí không được hoàn lại ngoại trừ trường hợp lỗi kỹ thuật từ hệ thống.
+                <strong>3. Miễn phí vì cộng đồng:</strong> Ứng dụng Pawty hoàn toàn miễn phí trọn đời cho cư dân đô thị và người nuôi thú cưng. Mọi tính năng Bảng tin, Pawty Dating, Sổ tiêm chủng Safe Pet và Báo tin SOS tìm Boss lạc đều không thu phí duy trì hay gói cước định kỳ.
               </p>
               <p>
-                <strong>4. Chấm dứt dịch vụ:</strong> Pawty có quyền khóa tài khoản tạm thời hoặc vĩnh viễn đối với các hành vi quấy rối, khai báo thông tin tiêm phòng giả mạo, hoặc bùng hẹn nhiều lần.
+                <strong>4. Chấm dứt quyền sử dụng tài khoản:</strong> Pawty có quyền khóa tài khoản tạm thời hoặc vĩnh viễn đối với các hành vi quấy rối, khai báo thông tin tiêm phòng giả mạo, hoặc bùng hẹn nhiều lần.
               </p>
             </div>
           ),
@@ -87,7 +87,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ activeDoc, onClose }) =>
                 <strong>2. Hủy hẹn có trách nhiệm:</strong> Nếu có việc đột xuất, người dùng phải bấm "Hủy Hẹn" trước tối thiểu 1 tiếng để đối phương chủ động sắp xếp thời gian.
               </p>
               <p>
-                <strong>3. Mức phạt:</strong> Tài khoản bị đối phương báo cáo "Không đến điểm hẹn mà không thông báo" 2 lần trong vòng 7 ngày sẽ bị hệ thống tự động khóa tính năng Radar Quẹt Thẻ trong 3 ngày và gắn nhãn cảnh báo.
+                <strong>3. Mức phạt:</strong> Tài khoản bị đối phương báo cáo "Không đến điểm hẹn mà không thông báo" 2 lần trong vòng 7 ngày sẽ bị hệ thống tự động tạm khóa quyền gửi lời mời Pawty Dating trong 3 ngày và gắn nhãn cảnh báo.
               </p>
             </div>
           ),

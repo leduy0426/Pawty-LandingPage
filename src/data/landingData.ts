@@ -198,7 +198,7 @@ export const TESTIMONIALS: TestimonialItem[] = [
     petType: 'Corgi',
     apartment: 'Sala Sarina, TP. Thủ Đức',
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80',
-    quote: 'Thích nhất là ứng dụng hoàn toàn miễn phí trọn đời cho cư dân, không bị giới hạn tính năng hay bắt mua gói cước. Lại còn được tặng voucher giảm 35% spa ở ngay shop dưới sảnh tòa nhà.',
+    quote: 'Thích nhất là ứng dụng hoàn toàn miễn phí trọn đời cho cư dân, không bị giới hạn tính năng hay bắt mua gói cước. Giao diện xinh xắn, tìm bạn dắt dạo cùng tòa nhà cực kỳ nhanh và an tâm!',
     rating: 5,
   },
 ];

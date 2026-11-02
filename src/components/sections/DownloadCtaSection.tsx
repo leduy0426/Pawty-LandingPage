@@ -26,7 +26,7 @@ export const DownloadCtaSection: React.FC = () => {
               </h2>
 
               <p className="text-white/90 text-base sm:text-lg max-w-2xl font-body">
-                Tải ứng dụng Pawty hoàn toàn miễn phí trên iOS và Android. Đăng ký trong hôm nay để nhận ngay voucher giảm 35% tại hệ thống Pet Spa & Cafe đối tác nội khu.
+                Tải ứng dụng Pawty hoàn toàn miễn phí trên iOS và Android. Kết nối ngay với hàng nghìn Boss &amp; Sen thân thiện cùng khu chung cư!
               </p>
 
               {/* Badges / Store Buttons */}
@@ -73,7 +73,7 @@ export const DownloadCtaSection: React.FC = () => {
                 </div>
 
                 <div className="mt-4 font-display font-bold text-sm text-charcoal">
-                  Quét mã để tải nhanh
+                  Mở Camera chụp mã tải app
                 </div>
                 <div className="text-[11px] text-charcoal-light mt-0.5">
                   Tương thích iOS 15+ & Android 10+

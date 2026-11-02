@@ -11,7 +11,7 @@ import { FaqSection } from './components/sections/FaqSection';
 import { DownloadCtaSection } from './components/sections/DownloadCtaSection';
 import { Footer } from './components/layout/Footer';
 import { LegalModal, LegalDocType } from './components/legal/LegalModal';
-import { Gift } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 
 export const App: React.FC = () => {
   const [activeLegalDoc, setActiveLegalDoc] = useState<LegalDocType>(null);
@@ -28,13 +28,13 @@ export const App: React.FC = () => {
       
       {/* Top Announcement Bar */}
       <div className="bg-gradient-to-r from-coral via-coral-light to-mint-dark text-white text-xs sm:text-sm py-2 px-4 text-center font-bold flex items-center justify-center gap-2 shadow-sm">
-        <Gift className="w-4 h-4 text-white animate-bounce" />
-        <span>Ưu đãi cư dân đô thị: Đăng ký hôm nay tặng ngay Voucher -35% dịch vụ Pet Spa &amp; Cafe nội khu!</span>
+        <Sparkles className="w-4 h-4 text-white animate-bounce" />
+        <span>🐾 Chào mừng bạn đến với Pawty — Ứng dụng cộng đồng miễn phí 100% dành cho Boss &amp; Sen tại chung cư đô thị!</span>
         <button
           onClick={() => scrollToSection('download')}
           className="underline decoration-white/70 hover:decoration-white ml-1 text-white hidden sm:inline cursor-pointer"
         >
-          Nhận ngay →
+          Tham gia ngay →
         </button>
       </div>
 

@@ -79,7 +79,7 @@ export const FreeEcosystemSection: React.FC<FreeEcosystemProps> = ({ onDownloadC
             </button>
           </motion.div>
 
-          {/* Card 2: Partner Ecosystem & Emergency SOS */}
+          {/* Card 2: Emergency SOS & AI Support */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -90,29 +90,29 @@ export const FreeEcosystemSection: React.FC<FreeEcosystemProps> = ({ onDownloadC
             <div className="space-y-6">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold uppercase tracking-wider text-coral px-3 py-1 rounded-full bg-coral-50 border border-coral/30">
-                  Hệ Sinh Thái Đối Tác
+                  Cứu Hộ Khẩn Cấp
                 </span>
                 <span className="text-xs font-bold text-coral flex items-center gap-1">
-                  <Sparkles className="w-3.5 h-3.5" /> Voucher -35%
+                  <Sparkles className="w-3.5 h-3.5" /> Bán kính 3km
                 </span>
               </div>
 
               <div>
                 <h3 className="font-display font-bold text-2xl text-charcoal">
-                  Ưu Đãi Pet Spa &amp; Cứu Hộ SOS Khẩn Cấp
+                  Báo Động Tìm Boss Lạc &amp; Trợ Lý AI
                 </h3>
                 <p className="text-sm text-charcoal-light mt-2 leading-relaxed">
-                  Kết nối mạng lưới Pet Cafe, Pet Spa, bệnh viện thú y nội khu và hệ thống phản ứng nhanh khi Boss lạc.
+                  Mạng lưới cư dân đô thị phản ứng nhanh bán kính 3km với trợ lý AI phân tích nhận diện hình ảnh khi Boss đi lạc.
                 </p>
               </div>
 
               <ul className="space-y-3.5 border-t border-gray-100 pt-6">
                 {[
-                  'Tặng voucher giảm 35% dịch vụ Pet Spa & Cafe nội khu',
-                  'Báo động tìm Boss lạc khẩn cấp bán kính 3km',
-                  '✨ Trợ lý Google Gemini AI Vision tự động viết mô tả tìm kiếm',
-                  'Bản đồ AI Trajectory định vị các manh mối cư dân báo về',
-                  'Đường dây nóng kết nối trực tiếp chủ nuôi với người phát hiện',
+                  'Báo động tìm Boss lạc khẩn cấp phủ sóng bán kính 3km',
+                  '✨ Trợ lý Google Gemini AI Vision tự động nhận diện & viết mô tả',
+                  'Cập nhật manh mối vị trí từ cư dân theo thời gian thực',
+                  'Kết nối trực tiếp chủ nuôi với người vừa nhìn thấy bé',
+                  '100% miễn phí — chung tay vì sự an toàn của thú cưng',
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-center gap-3 text-xs sm:text-sm text-charcoal">
                     <Sparkles className="w-4 h-4 text-coral shrink-0" />

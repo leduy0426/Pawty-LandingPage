@@ -115,7 +115,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo, onNavigateSection })
               }`}
             >
               <Sparkles className="w-4 h-4 text-mint" />
-              Thử Radar Quẹt
+              Trải nghiệm Dating
             </button>
 
             <button
@@ -172,7 +172,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo, onNavigateSection })
               className="w-full py-2.5 rounded-xl bg-coral-50 text-coral font-bold text-sm flex items-center justify-center gap-2"
             >
               <Sparkles className="w-4 h-4" />
-              Thử Radar Quẹt
+              Trải nghiệm Dating
             </button>
             <button
               onClick={() => {

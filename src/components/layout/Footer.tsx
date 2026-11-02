@@ -114,7 +114,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal, onNavigateSection }
                   onClick={() => onOpenLegal('terms')}
                   className="hover:text-coral transition-colors text-left"
                 >
-                  Điều Khoản Sử Dụng Dịch Vụ
+                  Quy Định &amp; Điều Khoản Sử Dụng
                 </button>
               </li>
               <li>
@@ -142,7 +142,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal, onNavigateSection }
               Tải Ứng Dụng
             </h4>
             <p className="text-xs text-gray-400">
-              Có sẵn trên iOS và Android. Tải ngay để nhận voucher giảm 35% Pet Spa.
+              Có sẵn trên iOS và Android. Tải ngay để tham gia cộng đồng thú cưng nội khu!
             </p>
             <div className="space-y-2 pt-1">
               <button

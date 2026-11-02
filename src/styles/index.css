@@ -12,6 +12,17 @@
   --color-danger: #E17055;
 }
 
+/* Cute & Rounded Typography Enforced Everywhere */
+body, button, input, select, textarea {
+  font-family: 'Quicksand', 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: 0.01em;
+}
+
+h1, h2, h3, h4, h5, h6, .font-display {
+  font-family: 'Fredoka', 'Quicksand', cursive, sans-serif;
+  letter-spacing: 0.02em;
+}
+
 /* Custom Utilities & Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
