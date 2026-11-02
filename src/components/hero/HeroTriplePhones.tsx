@@ -221,7 +221,7 @@ export const HeroTriplePhones: React.FC = () => {
           {/* App Header Bar (Pawty Dating) */}
           <div className="px-4 py-2 flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-lg bg-white/10 p-0.5 shadow-md flex items-center justify-center">
+              <div className="w-8 h-8 rounded-xl bg-white/10 p-1 shadow-md flex items-center justify-center shrink-0">
                 <img
                   src="/assets/pawty-icon.png"
                   alt="Pawty Icon"
@@ -232,7 +232,7 @@ export const HeroTriplePhones: React.FC = () => {
                 <img
                   src="/assets/pawty-wordmark.png"
                   alt="Pawty"
-                  className="h-6 w-auto object-contain drop-shadow-xs"
+                  className="h-7 sm:h-8 w-auto object-contain drop-shadow-xs"
                 />
                 <span className="font-display font-bold text-[11px] text-coral-light tracking-wider uppercase px-1.5 py-0.5 rounded-md bg-coral/20 border border-coral/30">
                   DATING
