@@ -24,10 +24,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal, onNavigateSection }
                   className="w-full h-full object-contain"
                 />
               </div>
-              <span className="font-display font-bold text-2xl text-white tracking-tight flex items-center gap-1">
-                Pawty
-                <span className="w-2 h-2 rounded-full bg-coral inline-block"></span>
-              </span>
+              <img
+                src="/assets/pawty-wordmark.png"
+                alt="Pawty"
+                className="h-8 w-auto object-contain"
+              />
             </div>
 
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm">

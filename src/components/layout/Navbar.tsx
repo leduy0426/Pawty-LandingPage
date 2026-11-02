@@ -91,21 +91,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo, onNavigateSection })
             </div>
             
             {/* Wordmark and Subtitle */}
-            <div className="flex flex-col text-left">
+            <div className="flex flex-col text-left justify-center">
+              <div className="flex items-center gap-1.5 h-7 sm:h-8">
+                <img
+                  src="/assets/pawty-wordmark.png"
+                  alt="Pawty"
+                  className="h-full w-auto object-contain drop-shadow-xs"
+                />
+              </div>
               <span
-                className={`font-display font-bold text-2xl flex items-center gap-1 leading-none ${
-                  isScrolled ? 'text-charcoal group-hover:text-coral' : 'text-white drop-shadow-sm'
+                className={`text-[9px] sm:text-[10px] font-bold tracking-wider uppercase mt-0.5 ${
+                  isScrolled ? 'text-charcoal-light' : 'text-white/90 drop-shadow-xs'
                 }`}
               >
-                PAWTY
-                <span className="w-2 h-2 rounded-full bg-coral inline-block" />
-              </span>
-              <span
-                className={`text-[10px] font-semibold tracking-wider uppercase mt-0.5 ${
-                  isScrolled ? 'text-charcoal-light' : 'text-white/80'
-                }`}
-              >
-                Mạng xã hội &amp; Hẹn dạo
+                MẠNG XÃ HỘI CHO NGƯỜI THÍCH THÚ CƯNG
               </span>
             </div>
           </div>
