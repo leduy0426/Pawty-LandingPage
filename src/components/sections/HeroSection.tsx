@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, MapPin, Sparkles, Star, ArrowRight } from 'lucide-react';
+import { ShieldCheck, Sparkles, ArrowRight, RotateCcw } from 'lucide-react';
 import { HeroTiltedCardsMosaic } from '../hero/HeroTiltedCardsMosaic';
 import { HeroTriplePhones } from '../hero/HeroTriplePhones';
 
@@ -70,18 +70,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreRadar, onDown
               transition={{ duration: 0.5, delay: 0.2 }}
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-white text-xs sm:text-sm font-bold shadow-sm"
             >
-              <span className="w-2.5 h-2.5 rounded-full bg-mint animate-pulse" />
-              <span>🐾 Siêu ứng dụng kết nối thú cưng đô thị đầu tiên</span>
+              <Sparkles className="w-3.5 h-3.5 text-mint animate-pulse" />
+              <span>🐾 Siêu ứng dụng thú cưng đô thị tích hợp AI Google Gemini</span>
             </motion.div>
 
-            {/* Main Headline (Exact phrasing & visual hierarchy matching VNHUB) */}
+            {/* Main Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
               className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-[46px] xl:text-[54px] text-white leading-[1.12] tracking-tight text-left drop-shadow-sm"
             >
-              Trải nghiệm kết nối Boss &amp; Sen phong phú, dễ sử dụng
+              Trải nghiệm kết nối Boss &amp; Sen thông minh, an tâm tuyệt đối
             </motion.h1>
 
             {/* Detailed Description */}
@@ -91,112 +91,75 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreRadar, onDown
               transition={{ duration: 0.7, delay: 0.45 }}
               className="text-sm sm:text-base md:text-lg text-white/90 font-body leading-relaxed max-w-xl text-left font-normal"
             >
-              Pawty là siêu ứng dụng kết nối thú cưng thông minh tại các khu chung cư và đô thị hiện đại (Vinhomes, Masteri, Sala...). Tích hợp sổ tiêm điện tử <strong className="text-mint font-bold">Safe Pet</strong>, radar quẹt thẻ tìm bạn dắt dạo bán kính 3km, hẹn dạo trung điểm tránh cắn nhau và lưu giữ khoảnh khắc Boss vui nhộn trong một hệ sinh thái an tâm, toàn diện.
+              Pawty là siêu ứng dụng đầu tiên tại Việt Nam kết nối cộng đồng thú cưng chung cư cao cấp. Đột phá với <strong className="text-mint font-bold">✨ Trợ lý AI Google Gemini</strong> tự động viết mô tả tìm Boss lạc, radar quẹt thẻ tìm bạn dắt dạo tuần hoàn không bao giờ hết thẻ, và hồ sơ <strong className="text-white font-bold">Pet Family Passport</strong> minh bạch sổ tiêm Safe Pet.
             </motion.p>
 
             {/* Store Badges & Call to Actions */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="pt-2 space-y-4"
+              transition={{ duration: 0.7, delay: 0.6 }}
+              className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4"
             >
-              {/* App Store & Google Play Download Buttons */}
-              <div className="flex flex-wrap items-center gap-3">
-                {/* App Store button */}
-                <button
-                  onClick={onDownloadClick}
-                  className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-black/80 hover:bg-black text-white border border-white/20 shadow-lg hover:border-mint transition-all hover:scale-105 active:scale-95 group"
-                >
-                  <img
-                    src="/assets/app-store.png"
-                    alt="App Store"
-                    className="w-6 h-6 object-contain"
-                    onError={(e) => {
-                      (e.currentTarget as HTMLElement).style.display = 'none';
-                    }}
-                  />
-                  <div className="text-left">
-                    <div className="text-[10px] text-white/70 leading-none">Tải trên</div>
-                    <div className="text-sm font-bold font-display leading-tight">App Store</div>
-                  </div>
-                </button>
+              {/* Primary Action Button: Explore Interactive Radar */}
+              <button
+                onClick={onExploreRadar}
+                className="px-7 py-4 rounded-full bg-mint text-charcoal hover:bg-mint-dark hover:text-white font-display font-bold text-base shadow-lg shadow-mint/30 hover:shadow-xl hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2 group cursor-pointer"
+              >
+                <span>⚡ Trải Nghiệm Radar Ngay</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
 
-                {/* Google Play button */}
-                <button
-                  onClick={onDownloadClick}
-                  className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-black/80 hover:bg-black text-white border border-white/20 shadow-lg hover:border-mint transition-all hover:scale-105 active:scale-95 group"
-                >
-                  <img
-                    src="/assets/google-play.png"
-                    alt="Google Play"
-                    className="w-6 h-6 object-contain"
-                    onError={(e) => {
-                      (e.currentTarget as HTMLElement).style.display = 'none';
-                    }}
-                  />
-                  <div className="text-left">
-                    <div className="text-[10px] text-white/70 leading-none">Khám phá trên</div>
-                    <div className="text-sm font-bold font-display leading-tight">Google Play</div>
-                  </div>
-                </button>
+              {/* Secondary Button: Download */}
+              <button
+                onClick={onDownloadClick}
+                className="px-6 py-4 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white font-display font-bold text-base transition-all flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <span>Tải App Miễn Phí</span>
+              </button>
+            </motion.div>
 
-                {/* Interactive Web Radar Demo CTA */}
-                <button
-                  onClick={onExploreRadar}
-                  className="flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-gradient-to-r from-mint to-teal-400 hover:from-mint-light hover:to-teal-300 text-charcoal font-display font-bold text-sm shadow-lg shadow-teal-500/20 hover:scale-105 active:scale-95 transition-all"
-                >
-                  <Sparkles className="w-4 h-4 text-charcoal" />
-                  <span>Quẹt Thử Radar</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
+            {/* Key Value Badges */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.7, delay: 0.75 }}
+              className="pt-4 border-t border-white/15 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs sm:text-sm text-white/80 font-medium"
+            >
+              <div className="flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-mint" />
+                <span>100% Sổ Tiêm Safe Pet</span>
               </div>
-
-              {/* Trust Badges */}
-              <div className="pt-4 border-t border-white/15 flex flex-wrap items-center gap-5 text-xs text-white/80 font-medium">
-                <div className="flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4 text-mint" />
-                  <span>100% Sổ tiêm xác thực</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <MapPin className="w-4 h-4 text-coral-light" />
-                  <span>Radar PostGIS 3km</span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <div className="flex text-amber-300">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-amber-300" />
-                    ))}
-                  </div>
-                  <span className="font-bold text-white">4.9/5 (2,400+ đánh giá)</span>
-                </div>
+              <div className="flex items-center gap-1.5">
+                <Sparkles className="w-4 h-4 text-purple-300" />
+                <span>AI Gemini Vision 3s</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <RotateCcw className="w-4 h-4 text-amber-300" />
+                <span>Quẹt thẻ vô tận &amp; Hoàn tác</span>
               </div>
             </motion.div>
+
           </motion.div>
 
           {/* ========================================================
               RIGHT COLUMN: TRIPLE 3D PHONES SHOWCASE
               ======================================================== */}
-          <div className="lg:col-span-6 xl:col-span-7 flex justify-center lg:justify-end items-center relative">
+          <div className="lg:col-span-6 xl:col-span-7 flex justify-center items-center mt-6 lg:mt-0">
             <HeroTriplePhones />
           </div>
 
         </div>
       </div>
 
-      {/* ========================================================
-          BOTTOM WAVE CURVE DECORATION (EXACT MATCH WITH VNHUB)
-          ======================================================== */}
-      <div className="absolute bottom-0 left-0 right-0 pointer-events-none z-20">
+      {/* Decorative Bottom Wave Transition */}
+      <div className="absolute bottom-0 inset-x-0 overflow-hidden leading-none z-10 pointer-events-none">
         <svg
           viewBox="0 0 1200 120"
           preserveAspectRatio="none"
-          className="relative h-14 sm:h-20 w-full text-cream fill-current"
+          className="relative block w-full h-10 sm:h-16 lg:h-20 fill-cream"
         >
-          <path
-            d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
-            fill="#FDFBF7"
-          />
+          <path d="M0,0 C150,90 350,-40 500,45 C650,130 900,10 1200,50 L1200,120 L0,120 Z" />
         </svg>
       </div>
 

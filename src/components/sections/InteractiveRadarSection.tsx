@@ -1,19 +1,37 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MOCK_PETS } from '../../data/landingData';
-import { ShieldCheck, Heart, X, Sparkles, MapPin, CheckCircle2, AlertTriangle, RotateCcw } from 'lucide-react';
+import { ShieldCheck, Heart, X, Sparkles, MapPin, CheckCircle2, RotateCcw, MessageCircle, Dog, Cat } from 'lucide-react';
 
 export const InteractiveRadarSection: React.FC = () => {
+  const [filterSpecies, setFilterSpecies] = useState<'all' | 'Chó' | 'Mèo'>('all');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [matchedPet, setMatchedPet] = useState<typeof MOCK_PETS[0] | null>(null);
+  const [swipeHistory, setSwipeHistory] = useState<number[]>([]);
 
-  const currentPet = MOCK_PETS[currentIndex % MOCK_PETS.length];
+  const filteredPets = MOCK_PETS.filter((p) => {
+    if (filterSpecies === 'all') return true;
+    return p.species === filterSpecies;
+  });
+
+  const activeIndex = currentIndex % (filteredPets.length || 1);
+  const currentPet = filteredPets[activeIndex] || MOCK_PETS[0];
 
   const handleSwipe = (direction: 'left' | 'right') => {
+    setSwipeHistory((prev) => [...prev, currentIndex]);
     if (direction === 'right') {
       setMatchedPet(currentPet);
     } else {
       setCurrentIndex((prev) => prev + 1);
+    }
+  };
+
+  const handleRewind = () => {
+    if (swipeHistory.length > 0) {
+      const prevIdx = swipeHistory[swipeHistory.length - 1];
+      setSwipeHistory((prev) => prev.slice(0, -1));
+      setCurrentIndex(prevIdx);
+      setMatchedPet(null);
     }
   };
 
@@ -27,16 +45,46 @@ export const InteractiveRadarSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div className="text-center max-w-3xl mx-auto mb-12 space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-coral-50 border border-coral/30 text-coral text-xs font-bold uppercase tracking-wider">
-            ⚡ Trải Nghiệm Thực Tế
+            ⚡ Trải Nghiệm Thực Tế PostGIS 3km
           </div>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-charcoal tracking-tight">
-            Quẹt thẻ tìm bạn dắt dạo ngay trên web!
+            Quẹt thẻ tìm bạn dắt dạo vô tận ngay trên web!
           </h2>
           <p className="text-base sm:text-lg text-charcoal-light">
-            Nhấp <span className="text-coral font-bold">Trái Tim</span> để gửi tín hiệu làm quen hoặc <span className="text-charcoal font-bold">Dấu Nhân</span> để xem bé tiếp theo. Hãy thử ngay để cảm nhận!
+            Nhấp <span className="text-coral font-bold">Trái Tim</span> để ghép đôi, <span className="text-charcoal font-bold">Dấu X</span> để bỏ qua, và đặc biệt bấm <span className="text-amber-600 font-bold">Hoàn Tác</span> nếu lỡ quẹt nhầm!
           </p>
+
+          {/* Species Filter Tabs */}
+          <div className="flex items-center justify-center gap-2 pt-2">
+            {[
+              { id: 'all', label: 'Tất cả Boss', icon: Sparkles },
+              { id: 'Chó', label: 'Chó cưng', icon: Dog },
+              { id: 'Mèo', label: 'Mèo cưng', icon: Cat },
+            ].map((tab) => {
+              const Icon = tab.icon;
+              const isActive = filterSpecies === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => {
+                    setFilterSpecies(tab.id as any);
+                    setCurrentIndex(0);
+                    setSwipeHistory([]);
+                  }}
+                  className={`px-4 py-2 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                    isActive
+                      ? 'bg-coral text-white shadow-md shadow-coral/30 scale-105'
+                      : 'bg-white text-charcoal border border-gray-200 hover:border-coral/40'
+                  }`}
+                >
+                  <Icon className="w-3.5 h-3.5" />
+                  <span>{tab.label}</span>
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         {/* Interactive Radar Arena */}
@@ -88,7 +136,7 @@ export const InteractiveRadarSection: React.FC = () => {
                       {currentPet.breed} • {currentPet.apartment}
                     </p>
                   </div>
-                  <div className="flex gap-1">
+                  <div className="flex gap-1 flex-wrap">
                     {currentPet.personality.map((tag, i) => (
                       <span
                         key={i}
@@ -100,64 +148,59 @@ export const InteractiveRadarSection: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Good Habits */}
-                <div className="space-y-1.5 pt-2 border-t border-gray-100">
-                  <div className="text-xs font-bold text-green-700 flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-green-600" />
-                    <span>Thói quen tốt:</span>
+                {/* Habits Disclosure (Fight Prevention) */}
+                <div className="space-y-2 pt-2 border-t border-gray-100 text-xs">
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-mint-dark shrink-0 mt-0.5" />
+                    <span className="text-charcoal-light">
+                      <strong className="text-charcoal font-semibold">Thói quen tốt: </strong>
+                      {currentPet.goodHabits.join(', ')}
+                    </span>
                   </div>
-                  <div className="flex flex-wrap gap-1.5">
-                    {currentPet.goodHabits.map((habit, i) => (
-                      <span
-                        key={i}
-                        className="text-[11px] bg-green-50 text-green-800 px-2.5 py-1 rounded-lg font-medium"
-                      >
-                        ✓ {habit}
+
+                  {currentPet.watchOutHabits.length > 0 && (
+                    <div className="flex items-start gap-2">
+                      <span className="text-amber-500 font-bold shrink-0">⚠️</span>
+                      <span className="text-charcoal-light">
+                        <strong className="text-charcoal font-semibold">Lưu ý khi dạo: </strong>
+                        {currentPet.watchOutHabits.join(', ')}
                       </span>
-                    ))}
-                  </div>
+                    </div>
+                  )}
                 </div>
 
-                {/* Watch Out Habits */}
-                <div className="space-y-1.5 pt-1">
-                  <div className="text-xs font-bold text-amber-700 flex items-center gap-1.5">
-                    <AlertTriangle className="w-3.5 h-3.5 text-amber-500" />
-                    <span>Lưu ý khi dắt dạo:</span>
-                  </div>
-                  <div className="flex flex-wrap gap-1.5">
-                    {currentPet.watchOutHabits.map((habit, i) => (
-                      <span
-                        key={i}
-                        className="text-[11px] bg-amber-50 text-amber-800 px-2.5 py-1 rounded-lg font-medium"
-                      >
-                        ! {habit}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                {/* Action Buttons: Rewind, Pass, Like */}
+                <div className="pt-4 flex items-center justify-center gap-4">
+                  {/* Rewind Swipe Button */}
+                  <button
+                    onClick={handleRewind}
+                    disabled={swipeHistory.length === 0}
+                    className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all ${
+                      swipeHistory.length > 0
+                        ? 'bg-amber-50 border-amber-300 text-amber-600 hover:bg-amber-100 active:scale-90 cursor-pointer shadow-sm'
+                        : 'bg-gray-100 border-gray-200 text-gray-300 cursor-not-allowed opacity-50'
+                    }`}
+                    title="Hoàn tác lượt quẹt vừa rồi (Rewind)"
+                  >
+                    <RotateCcw className="w-5 h-5" />
+                  </button>
 
-                {/* Action Buttons */}
-                <div className="pt-4 flex items-center justify-center gap-6">
+                  {/* Pass Button */}
                   <button
                     onClick={() => handleSwipe('left')}
-                    className="w-14 h-14 rounded-full bg-white border-2 border-gray-200 text-charcoal-light hover:text-danger hover:border-danger hover:scale-110 active:scale-95 shadow-md flex items-center justify-center transition-all"
+                    className="w-14 h-14 rounded-full bg-white border-2 border-gray-200 text-charcoal hover:border-charcoal hover:bg-gray-50 flex items-center justify-center transition-all shadow-md active:scale-90 cursor-pointer"
+                    aria-label="Pass"
                     title="Bỏ qua"
                   >
-                    <X className="w-7 h-7" />
+                    <X className="w-6 h-6 text-gray-500" />
                   </button>
 
-                  <button
-                    onClick={() => setCurrentIndex((prev) => prev + 1)}
-                    className="w-10 h-10 rounded-full bg-gray-100 text-charcoal-light hover:text-charcoal hover:scale-110 active:scale-95 flex items-center justify-center transition-all"
-                    title="Đổi bé khác"
-                  >
-                    <RotateCcw className="w-4 h-4" />
-                  </button>
-
+                  {/* Like Button */}
                   <button
                     onClick={() => handleSwipe('right')}
-                    className="w-16 h-16 rounded-full bg-coral hover:bg-coral-dark text-white hover:scale-110 active:scale-95 shadow-card-hover flex items-center justify-center transition-all"
-                    title="Gửi tim kết bạn"
+                    className="w-16 h-16 rounded-full bg-gradient-to-tr from-coral to-rose-500 text-white flex items-center justify-center transition-all shadow-lg shadow-coral/30 hover:shadow-xl hover:scale-105 active:scale-95 cursor-pointer"
+                    aria-label="Like"
+                    title="Thả tim kết nối"
                   >
                     <Heart className="w-8 h-8 fill-white" />
                   </button>
@@ -166,60 +209,38 @@ export const InteractiveRadarSection: React.FC = () => {
             </motion.div>
           </AnimatePresence>
 
-          {/* Match Modal Popup with Confetti Simulation */}
+          {/* Match Modal Celebration */}
           <AnimatePresence>
             {matchedPet && (
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+                className="absolute inset-0 bg-charcoal/85 backdrop-blur-md rounded-4xl flex flex-col items-center justify-center p-6 text-white text-center z-20 space-y-4"
               >
-                <motion.div
-                  initial={{ scale: 0.8, y: 30 }}
-                  animate={{ scale: 1, y: 0 }}
-                  exit={{ scale: 0.8, y: 30 }}
-                  className="bg-white rounded-4xl max-w-sm w-full p-8 text-center shadow-2xl relative border-4 border-coral"
-                >
-                  <div className="w-16 h-16 rounded-full bg-coral-50 text-coral text-3xl flex items-center justify-center mx-auto mb-4 animate-bounce">
-                    🎉
-                  </div>
+                <div className="text-4xl animate-bounce">🎉 🐾 💖</div>
+                <h4 className="font-display font-extrabold text-3xl text-mint">
+                  IT'S A MATCH!
+                </h4>
+                <p className="text-sm text-white/90 max-w-xs">
+                  Bạn và Boss <strong className="text-coral-light">{matchedPet.name}</strong> đã tương hợp! Điểm hẹn dạo trung tâm đề xuất: <span className="underline font-bold text-mint">Công viên Landmark Park</span>.
+                </p>
 
-                  <h3 className="font-display font-extrabold text-3xl text-coral mb-2">
-                    IT'S A PAWTY MATCH!
-                  </h3>
-
-                  <p className="text-sm text-charcoal-light font-body mb-6">
-                    Bé <strong className="text-charcoal">{matchedPet.name}</strong> cũng rất muốn đi dạo cùng cún của bạn tại <span className="font-semibold text-charcoal">{matchedPet.apartment}</span>!
-                  </p>
-
-                  <div className="flex items-center justify-center gap-4 mb-6">
-                    <img
-                      src={matchedPet.avatar}
-                      alt={matchedPet.name}
-                      className="w-20 h-20 rounded-full object-cover border-4 border-coral shadow-md"
-                    />
-                    <Sparkles className="w-6 h-6 text-warning" />
-                    <div className="w-20 h-20 rounded-full bg-mint-50 border-4 border-mint flex items-center justify-center text-3xl shadow-md">
-                      🐕
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <button
-                      onClick={handleNextMatch}
-                      className="w-full py-3.5 rounded-full bg-coral hover:bg-coral-dark text-white font-display font-bold text-base shadow-card-hover transition-all"
-                    >
-                      Bắt Đầu Trò Chuyện & Hẹn Giờ
-                    </button>
-                    <button
-                      onClick={handleNextMatch}
-                      className="w-full py-2.5 text-xs font-semibold text-charcoal-light hover:text-charcoal"
-                    >
-                      Tiếp tục quẹt tìm bạn khác
-                    </button>
-                  </div>
-                </motion.div>
+                <div className="flex gap-3 pt-2">
+                  <button
+                    onClick={handleNextMatch}
+                    className="px-5 py-2.5 rounded-full bg-white/20 hover:bg-white/30 text-white font-bold text-xs transition-all cursor-pointer"
+                  >
+                    Quẹt tiếp
+                  </button>
+                  <button
+                    onClick={handleNextMatch}
+                    className="px-5 py-2.5 rounded-full bg-coral hover:bg-coral-dark text-white font-bold text-xs flex items-center gap-1.5 shadow-md shadow-coral/40 cursor-pointer"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    <span>Mở khung Chat</span>
+                  </button>
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
@@ -230,4 +251,3 @@ export const InteractiveRadarSection: React.FC = () => {
     </section>
   );
 };
-

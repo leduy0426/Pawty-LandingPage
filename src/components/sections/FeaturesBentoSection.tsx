@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { CORE_FEATURES } from '../../data/landingData';
-import { ShieldCheck, Compass, MessageCircleHeart, Flame, ArrowUpRight } from 'lucide-react';
+import { ShieldCheck, Compass, MessageCircleHeart, Flame, Sparkles, RotateCcw, ArrowUpRight } from 'lucide-react';
 
 interface FeaturesBentoProps {
   onLearnMore?: (featureId: string) => void;
@@ -10,16 +10,20 @@ interface FeaturesBentoProps {
 export const FeaturesBentoSection: React.FC<FeaturesBentoProps> = ({ onLearnMore }) => {
   const getIcon = (iconName: string) => {
     switch (iconName) {
+      case 'Sparkles':
+        return <Sparkles className="w-7 h-7 text-danger animate-pulse" />;
       case 'ShieldCheck':
         return <ShieldCheck className="w-7 h-7 text-mint-dark" />;
       case 'Compass':
         return <Compass className="w-7 h-7 text-coral" />;
       case 'MessageCircleHeart':
         return <MessageCircleHeart className="w-7 h-7 text-amber-500" />;
+      case 'RotateCcw':
+        return <RotateCcw className="w-7 h-7 text-amber-500" />;
       case 'Flame':
         return <Flame className="w-7 h-7 text-danger" />;
       default:
-        return <ShieldCheck className="w-7 h-7 text-coral" />;
+        return <Sparkles className="w-7 h-7 text-coral" />;
     }
   };
 
@@ -65,13 +69,13 @@ export const FeaturesBentoSection: React.FC<FeaturesBentoProps> = ({ onLearnMore
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-mint-50 border border-mint/40 text-mint-dark text-xs font-bold uppercase tracking-wider">
-            🐾 4 Trụ Cột Đột Phá
+            🐾 4 Trụ Cột Đột Phá Công Nghệ
           </div>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-charcoal tracking-tight">
             Mọi điều bạn và Boss cần, gói gọn trong một siêu ứng dụng
           </h2>
           <p className="text-base sm:text-lg text-charcoal-light font-body">
-            Không còn nỗi lo Boss bị cuồng chân, không còn áp lực quên lịch tiêm phòng, và không còn cảnh cô đơn dắt chó một mình mỗi buổi chiều.
+            Không còn nỗi lo Boss cuồng chân bí bách, không còn ám ảnh thất lạc cún cưng, và không còn cảnh cô đơn dắt Boss một mình mỗi buổi chiều.
           </p>
         </div>
 
@@ -98,32 +102,37 @@ export const FeaturesBentoSection: React.FC<FeaturesBentoProps> = ({ onLearnMore
                     <span className={`px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider border ${theme.badgeBg}`}>
                       {feature.badge}
                     </span>
-                    <div className="p-3 rounded-2xl bg-white shadow-sm group-hover:scale-110 transition-transform">
+                    <div className="p-3 rounded-2xl bg-white shadow-sm border border-gray-100 group-hover:scale-110 transition-transform">
                       {getIcon(feature.iconName)}
                     </div>
                   </div>
 
-                  <h3 className="font-display font-bold text-2xl text-charcoal group-hover:text-coral transition-colors">
-                    {feature.title}
-                  </h3>
-
-                  <p className="text-charcoal-light text-base leading-relaxed">
-                    {feature.description}
-                  </p>
+                  <div>
+                    <h3 className="font-display font-bold text-2xl text-charcoal tracking-tight group-hover:text-coral transition-colors">
+                      {feature.title}
+                    </h3>
+                    <p className="mt-3 text-sm sm:text-base text-charcoal-light leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </div>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-gray-100 flex items-center justify-between relative z-10">
+                <div className="pt-6 border-t border-gray-100 flex items-center justify-between relative z-10 mt-6">
                   <span className="text-xs font-bold text-charcoal flex items-center gap-1.5">
-                    ✨ {feature.highlight}
+                    <span className="w-1.5 h-1.5 rounded-full bg-coral" />
+                    {feature.highlight}
                   </span>
-                  <button
-                    onClick={() => onLearnMore?.(feature.id)}
-                    className="w-9 h-9 rounded-full bg-white shadow-sm flex items-center justify-center text-charcoal-light group-hover:bg-coral group-hover:text-white transition-all"
-                    aria-label="Xem chi tiết"
-                  >
-                    <ArrowUpRight className="w-4 h-4" />
-                  </button>
+                  
+                  {onLearnMore && (
+                    <button
+                      onClick={() => onLearnMore(feature.id)}
+                      className="text-xs font-bold text-coral hover:text-coral-dark inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform cursor-pointer"
+                    >
+                      Chi tiết <ArrowUpRight className="w-3.5 h-3.5" />
+                    </button>
+                  )}
                 </div>
+
               </motion.div>
             );
           })}
@@ -133,4 +142,3 @@ export const FeaturesBentoSection: React.FC<FeaturesBentoProps> = ({ onLearnMore
     </section>
   );
 };
-

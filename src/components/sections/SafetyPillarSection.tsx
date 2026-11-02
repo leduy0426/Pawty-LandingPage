@@ -56,9 +56,10 @@ export const SafetyPillarSection: React.FC = () => {
 
             <ul className="space-y-3 pt-2">
               {[
-                'Không bao giờ lộ số phòng hay tầng căn hộ — Chỉ hiển thị tòa chung cư và khoảng cách',
-                'Xác minh danh tính số điện thoại qua OTP Firebase chống nick ảo',
+                'Tuân thủ Luật Bảo vệ Dữ liệu Cá nhân số 91/2025/QH15 — Ẩn số phòng/tầng, chỉ hiện bán kính tương đối',
+                'Xác minh danh tính số điện thoại qua OTP Firebase chống nick ảo và quấy rối',
                 'Gợi ý 3 địa điểm dắt dạo trung điểm có camera giám sát và thân thiện với Boss',
+                'Cơ chế Hủy tương hợp (Bỏ Match) xóa sạch lịch sử trò chuyện khi không hợp gu',
               ].map((item, idx) => (
                 <li key={idx} className="flex items-start gap-3 text-sm text-charcoal font-semibold">
                   <CheckCircle className="w-5 h-5 text-mint-dark shrink-0 mt-0.5" />
@@ -103,4 +104,3 @@ export const SafetyPillarSection: React.FC = () => {
     </section>
   );
 };
-

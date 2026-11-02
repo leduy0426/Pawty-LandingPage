@@ -1,13 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Heart, X, Star, MapPin, Bell, Search, Compass, MessageCircle, User, Calendar } from 'lucide-react';
+import { ShieldCheck, Heart, X, Star, MapPin, Bell, Search, Compass, MessageCircle, User, Sparkles, RotateCcw, AlertTriangle, Eye, CheckCircle2 } from 'lucide-react';
 
 export const HeroTriplePhones: React.FC = () => {
   return (
     <div className="relative w-full max-w-[620px] h-[580px] sm:h-[680px] lg:h-[720px] flex items-center justify-center select-none">
       
       {/* ========================================================
-          LEFT PHONE: SỔ TIÊM ĐIỆN TỬ & PROFILE AN TOÀN (-10° TILT)
+          LEFT PHONE: PET FAMILY PASSPORT & SỔ TIÊM SAFE PET (-10° TILT)
           ======================================================== */}
       <motion.div
         initial={{ opacity: 0, x: -60, rotate: -18 }}
@@ -26,13 +26,13 @@ export const HeroTriplePhones: React.FC = () => {
             <span>5G 100%</span>
           </div>
 
-          {/* Screen Content: Safe Pet Passport */}
+          {/* Screen Content: Pet Family Passport */}
           <div className="p-3.5 space-y-3 flex-1 overflow-hidden">
             {/* Header */}
             <div className="flex items-center justify-between border-b border-white/10 pb-2">
               <div className="flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-mint" />
-                <span className="text-xs font-bold font-display text-mint">Sổ Tiêm Điện Tử</span>
+                <span className="text-xs font-bold font-display text-mint">Pet Family Passport</span>
               </div>
               <span className="text-[9px] px-2 py-0.5 rounded-full bg-mint/20 text-mint font-semibold">Đã xác minh</span>
             </div>
@@ -40,13 +40,13 @@ export const HeroTriplePhones: React.FC = () => {
             {/* Pet summary card */}
             <div className="p-2.5 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-3">
               <img
-                src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=150&auto=format&fit=crop&q=80"
-                alt="Golden Bơ"
+                src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=150&auto=format&fit=crop&q=80"
+                alt="Corgi Mochi"
                 className="w-12 h-12 rounded-xl object-cover border border-mint/40"
               />
               <div>
-                <h4 className="text-xs font-bold text-white">Golden Bơ (2.5t)</h4>
-                <p className="text-[10px] text-white/60">Masteri Thảo Điền - T4</p>
+                <h4 className="text-xs font-bold text-white">Corgi Mochi (1.5t)</h4>
+                <p className="text-[10px] text-white/60">Vinhomes Central Park - Park 3</p>
                 <div className="flex items-center gap-1 mt-0.5">
                   <span className="text-[9px] text-mint font-semibold">Chip: PT-8821-VN</span>
                 </div>
@@ -54,8 +54,8 @@ export const HeroTriplePhones: React.FC = () => {
             </div>
 
             {/* Vaccine records list */}
-            <div className="space-y-2">
-              <div className="text-[10px] font-bold text-white/80 uppercase tracking-wider">Lịch tiêm phòng 2026</div>
+            <div className="space-y-1.5">
+              <div className="text-[10px] font-bold text-white/80 uppercase tracking-wider">Sổ tiêm điện tử 2026</div>
               
               <div className="p-2 rounded-xl bg-white/5 border border-white/5 flex items-center justify-between text-[10px]">
                 <div className="flex items-center gap-2">
@@ -68,31 +68,30 @@ export const HeroTriplePhones: React.FC = () => {
               <div className="p-2 rounded-xl bg-white/5 border border-white/5 flex items-center justify-between text-[10px]">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-mint" />
-                  <span>Phòng dại Rabies 2026</span>
+                  <span>Phòng dại Rabies</span>
                 </div>
                 <span className="text-mint font-bold">Hoàn thành ✓</span>
               </div>
-
-              <div className="p-2 rounded-xl bg-white/5 border border-white/5 flex items-center justify-between text-[10px]">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-amber-400" />
-                  <span>Tẩy giun định kỳ Q3</span>
-                </div>
-                <span className="text-amber-400 font-bold">15/11 tới</span>
-              </div>
             </div>
 
-            {/* Safety guarantee banner */}
-            <div className="p-2.5 rounded-xl bg-gradient-to-r from-mint/20 to-teal-500/20 border border-mint/30 text-[10px] text-mint-light">
-              <p className="font-bold">✨ Chuẩn An Toàn Dắt Dạo</p>
-              <p className="text-[9px] text-white/70 mt-0.5">Không cắn sủa • Hòa đồng với cún khác</p>
+            {/* Behavioral habits list (Anti-fight) */}
+            <div className="space-y-1.5 pt-1">
+              <div className="text-[10px] font-bold text-white/80 uppercase tracking-wider">Minh bạch hành vi</div>
+              <div className="p-2 rounded-xl bg-mint/10 border border-mint/20 text-[9px] text-mint-light">
+                <p className="font-bold">✓ Thói quen tốt:</p>
+                <p className="text-white/70">Hòa đồng với cún nhỏ • Biết ngồi chờ lệnh</p>
+              </div>
+              <div className="p-2 rounded-xl bg-amber-500/10 border border-amber-500/20 text-[9px] text-amber-200">
+                <p className="font-bold">⚠️ Cần lưu ý:</p>
+                <p className="text-white/70">Hơi sợ tiếng còi xe lớn • Hay giữ bóng</p>
+              </div>
             </div>
           </div>
         </div>
       </motion.div>
 
       {/* ========================================================
-          RIGHT PHONE: HẸN DẠO TRUNG ĐIỂM & CHAT REALTIME (+10° TILT)
+          RIGHT PHONE: BÁO ĐỘNG SOS + AI GEMINI VISION (+10° TILT)
           ======================================================== */}
       <motion.div
         initial={{ opacity: 0, x: 60, rotate: 18 }}
@@ -111,67 +110,61 @@ export const HeroTriplePhones: React.FC = () => {
             <span>5G 100%</span>
           </div>
 
-          {/* Screen Content: Walk Appointment & Chat */}
-          <div className="p-3.5 space-y-3 flex-1 overflow-hidden">
+          {/* Screen Content: SOS AI Vision & Trajectory Map */}
+          <div className="p-3.5 space-y-2.5 flex-1 overflow-hidden text-left">
             {/* Header */}
             <div className="flex items-center justify-between border-b border-white/10 pb-2">
               <div className="flex items-center gap-1.5">
-                <Calendar className="w-4 h-4 text-coral" />
-                <span className="text-xs font-bold font-display text-white">Kèo Hẹn Dắt Cún</span>
+                <AlertTriangle className="w-4 h-4 text-rose-500 animate-pulse" />
+                <span className="text-xs font-bold font-display text-white">Bảng Tin SOS (3km)</span>
               </div>
-              <span className="text-[9px] px-2 py-0.5 rounded-full bg-coral/20 text-coral font-bold">17:30 Chiều nay</span>
+              <span className="text-[9px] px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-400 font-bold">Khẩn cấp</span>
             </div>
 
-            {/* Midpoint Suggestion Map Card */}
+            {/* AI Vision Badge Box */}
+            <div className="p-2 rounded-xl bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-coral/20 border border-purple-400/30 text-[9px] flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-purple-300 shrink-0" />
+              <span className="font-bold text-purple-200">✨ Google Gemini AI Vision đã mô tả nhận diện</span>
+            </div>
+
+            {/* Pet SOS Card */}
             <div className="rounded-2xl bg-white/5 border border-white/10 p-2.5 space-y-2">
-              <div className="flex items-center justify-between text-[10px]">
-                <span className="text-white/60">Trung điểm tối ưu:</span>
-                <span className="text-coral font-bold flex items-center gap-1">
-                  <MapPin className="w-3 h-3" /> Cách đều 350m
+              <div className="flex items-center gap-2.5">
+                <img
+                  src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=150&auto=format&fit=crop&q=80"
+                  alt="Mèo Sâu"
+                  className="w-12 h-12 rounded-xl object-cover border border-rose-500/40"
+                />
+                <div className="flex-1">
+                  <div className="flex items-center justify-between">
+                    <h4 className="text-xs font-bold text-white">Sâu (Mèo Ba Tư)</h4>
+                    <span className="text-[9px] text-rose-400 font-bold">Hậu tạ: 1.000.000đ</span>
+                  </div>
+                  <p className="text-[9px] text-white/60">Vị trí cuối: Tòa S1.02 Vinhomes</p>
+                </div>
+              </div>
+
+              {/* AI Auto Description Quote */}
+              <div className="p-2 rounded-xl bg-black/40 border border-white/5 text-[9px] text-white/80 leading-snug">
+                <span className="text-purple-300 font-bold">Mô tả AI: </span>
+                Lông xám bạc pha trắng ngực, mắt vàng hổ phách, không đeo vòng cổ. Thân thiện nhưng dễ hoảng loạn.
+              </div>
+
+              {/* Trajectory / Sightings info */}
+              <div className="flex items-center justify-between text-[9px] pt-1 border-t border-white/5">
+                <span className="text-mint font-semibold flex items-center gap-1">
+                  <Eye className="w-3 h-3" /> 9 manh mối nhìn thấy
                 </span>
-              </div>
-              
-              {/* Mini visual map route */}
-              <div className="h-20 rounded-xl bg-slate-800/80 relative overflow-hidden flex items-center justify-center border border-white/10">
-                <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:8px_8px]" />
-                <div className="relative z-10 flex items-center gap-4 text-[10px]">
-                  <div className="text-center">
-                    <span className="w-5 h-5 rounded-full bg-coral inline-flex items-center justify-center text-[9px] font-bold">Bơ</span>
-                    <p className="text-[8px] text-white/60 mt-0.5">Park 3</p>
-                  </div>
-                  <div className="w-12 h-0.5 bg-dashed border-b border-dashed border-coral animate-pulse" />
-                  <div className="text-center">
-                    <span className="w-6 h-6 rounded-full bg-mint text-charcoal inline-flex items-center justify-center text-[10px] font-bold shadow-md">📍</span>
-                    <p className="text-[8px] text-mint font-bold mt-0.5">Landmark Park</p>
-                  </div>
-                  <div className="w-12 h-0.5 bg-dashed border-b border-dashed border-coral animate-pulse" />
-                  <div className="text-center">
-                    <span className="w-5 h-5 rounded-full bg-amber-500 inline-flex items-center justify-center text-[9px] font-bold">Mochi</span>
-                    <p className="text-[8px] text-white/60 mt-0.5">Central 1</p>
-                  </div>
-                </div>
+                <span className="text-white/50">15 phút trước</span>
               </div>
             </div>
 
-            {/* Chat conversation bubble */}
-            <div className="space-y-2 text-[10px]">
-              <div className="flex items-start gap-2">
-                <div className="w-6 h-6 rounded-full bg-coral/30 flex items-center justify-center text-xs">🐕</div>
-                <div className="p-2 rounded-2xl rounded-tl-none bg-white/10 text-white/90 max-w-[80%]">
-                  Chào sen! Mochi nhà mình vừa tiêm đủ 7 bệnh, chiều nay ra bãi cỏ dạo chung nhé?
-                </div>
-              </div>
-              <div className="flex items-start gap-2 justify-end">
-                <div className="p-2 rounded-2xl rounded-tr-none bg-coral text-white font-medium max-w-[80%] shadow-sm">
-                  Dạ được ạ! Bé Bơ cũng háo hức gặp bạn lắm, hẹn sen 17:30 nhé! 🐾
-                </div>
-              </div>
-            </div>
-
-            {/* Anti-flake notice */}
-            <div className="p-2 rounded-xl bg-danger/10 border border-danger/20 text-[9px] text-danger-light flex items-center gap-1.5">
-              <span>🛡️</span>
-              <span>Cơ chế bảo vệ: Bùng hẹn 2 lần khóa quẹt thẻ 3 ngày.</span>
+            {/* Author confirmation action */}
+            <div className="pt-1">
+              <button className="w-full py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-[10px] flex items-center justify-center gap-1.5 shadow-md">
+                <CheckCircle2 className="w-3.5 h-3.5" />
+                <span>✓ Xác nhận đã đón bé về an toàn</span>
+              </button>
             </div>
           </div>
         </div>
@@ -206,7 +199,7 @@ export const HeroTriplePhones: React.FC = () => {
             </div>
           </div>
 
-          {/* App Header Bar (matching VNHUB style with Pawty identity) */}
+          {/* App Header Bar */}
           <div className="px-4 py-2 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="w-7 h-7 rounded-lg bg-coral flex items-center justify-center text-white text-base shadow-md">
@@ -226,7 +219,7 @@ export const HeroTriplePhones: React.FC = () => {
             </div>
           </div>
 
-          {/* Category Tabs (matching VNHUB "Tất cả, Du lịch, Trò chơi...") */}
+          {/* Category Tabs */}
           <div className="px-3 py-1 flex items-center gap-2 overflow-x-auto no-scrollbar text-xs">
             <span className="px-3 py-1 rounded-full bg-coral text-white font-bold whitespace-nowrap text-[11px] shadow-sm">
               Tất cả
@@ -235,14 +228,14 @@ export const HeroTriplePhones: React.FC = () => {
               Gần bạn (3km)
             </span>
             <span className="px-3 py-1 rounded-full bg-white/10 text-white/70 font-semibold whitespace-nowrap text-[11px]">
-              Cún cưng
+              Loài Chó
             </span>
             <span className="px-3 py-1 rounded-full bg-white/10 text-white/70 font-semibold whitespace-nowrap text-[11px]">
-              Mèo cưng
+              Loài Mèo
             </span>
           </div>
 
-          {/* Main Pet Radar Card (Avatar / Movie Poster style like VNHUB Hero) */}
+          {/* Main Pet Radar Card */}
           <div className="px-3 py-2 flex-1 flex flex-col">
             <div className="relative flex-1 rounded-2xl overflow-hidden border border-white/15 shadow-lg group">
               <img
@@ -259,7 +252,7 @@ export const HeroTriplePhones: React.FC = () => {
                 </div>
                 <div className="px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-white/90 text-[10px] font-semibold flex items-center gap-1">
                   <MapPin className="w-3 h-3 text-coral" />
-                  <span>280m</span>
+                  <span>Cách 280m</span>
                 </div>
               </div>
 
@@ -291,35 +284,44 @@ export const HeroTriplePhones: React.FC = () => {
               </div>
             </div>
 
-            {/* Quẹt / Action Buttons (Tinder & VNHUB Video Play style) */}
-            <div className="py-2.5 flex items-center justify-center gap-3">
+            {/* Quẹt / Action Buttons: Pass, Rewind, SuperLike, Match Like */}
+            <div className="py-2.5 flex items-center justify-center gap-2.5">
+              {/* Rewind (Hoàn tác) Button */}
+              <button
+                className="w-9 h-9 rounded-full bg-amber-500/20 hover:bg-amber-500/30 border border-amber-400/40 flex items-center justify-center text-amber-300 transition-all shadow-md active:scale-90"
+                aria-label="Hoàn tác lượt quẹt"
+                title="Hoàn tác (Rewind Swipe)"
+              >
+                <RotateCcw className="w-4 h-4" />
+              </button>
+
               {/* Pass Button */}
               <button
                 className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white/80 hover:text-white transition-all shadow-md active:scale-90"
-                aria-label="Pass"
+                aria-label="Bỏ qua"
               >
                 <X className="w-5 h-5 text-gray-300" />
               </button>
 
               {/* Super Like / Star Button */}
               <button
-                className="w-10 h-10 rounded-full bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 flex items-center justify-center text-amber-400 transition-all shadow-md active:scale-90"
+                className="w-10 h-10 rounded-full bg-blue-500/20 hover:bg-blue-500/30 border border-blue-400/40 flex items-center justify-center text-blue-400 transition-all shadow-md active:scale-90"
                 aria-label="Super Like"
               >
-                <Star className="w-5 h-5 fill-amber-400" />
+                <Star className="w-5 h-5 fill-blue-400 text-blue-400" />
               </button>
 
               {/* Match / Like Button */}
               <button
                 className="w-12 h-12 rounded-full bg-gradient-to-tr from-coral to-rose-500 hover:from-coral-dark hover:to-rose-600 flex items-center justify-center text-white transition-all shadow-lg shadow-coral/40 active:scale-95 animate-pulse"
-                aria-label="Like"
+                aria-label="Thả tim kết nối"
               >
                 <Heart className="w-6 h-6 fill-white" />
               </button>
             </div>
           </div>
 
-          {/* Bottom App Navigation Bar (matching native mobile apps) */}
+          {/* Bottom App Navigation Bar */}
           <div className="h-12 border-t border-white/10 bg-black/60 backdrop-blur-md flex items-center justify-around px-2 text-white/50 text-[9px]">
             <div className="flex flex-col items-center gap-0.5 text-coral font-bold cursor-pointer">
               <Compass className="w-4 h-4" />
@@ -331,11 +333,11 @@ export const HeroTriplePhones: React.FC = () => {
             </div>
             <div className="flex flex-col items-center gap-0.5 hover:text-white cursor-pointer">
               <ShieldCheck className="w-4 h-4" />
-              <span>Safe Pet</span>
+              <span>Hồ sơ</span>
             </div>
             <div className="flex flex-col items-center gap-0.5 hover:text-white cursor-pointer">
               <User className="w-4 h-4" />
-              <span>Cá nhân</span>
+              <span>Tôi</span>
             </div>
           </div>
 
@@ -345,4 +347,3 @@ export const HeroTriplePhones: React.FC = () => {
     </div>
   );
 };
-
