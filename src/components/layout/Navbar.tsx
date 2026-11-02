@@ -71,11 +71,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo, onNavigateSection })
             className="flex items-center gap-3 cursor-pointer group"
           >
             {/* Pawty Icon Squircle */}
-            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-white shadow-md flex items-center justify-center p-1.5 group-hover:scale-105 transition-transform duration-200 shrink-0">
+            <div className="w-10 h-10 rounded-2xl bg-white shadow-md flex items-center justify-center p-1 group-hover:scale-105 transition-transform duration-200">
               <img
                 src="/assets/pawty-icon.png"
                 alt="Pawty Icon"
-                className="w-8 h-8 sm:w-9 sm:h-9 object-contain"
+                className="w-8 h-8 object-contain"
                 onError={(e) => {
                   // Fallback to emoji if image is not loaded
                   (e.currentTarget as HTMLElement).style.display = 'none';
@@ -92,7 +92,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo, onNavigateSection })
             
             {/* Wordmark and Subtitle */}
             <div className="flex flex-col text-left justify-center">
-              <div className="flex items-center h-8 sm:h-10">
+              <div className="flex items-center gap-1.5 h-7 sm:h-8">
                 <img
                   src="/assets/pawty-wordmark.png"
                   alt="Pawty"
